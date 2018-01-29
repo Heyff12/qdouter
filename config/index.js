@@ -2,12 +2,12 @@
 var path = require('path')
 
 const isOnline = process.argv[2] === 'production'
-console.log('process');
-console.log(process);
-console.log('process.argv');
-console.log(process.argv);
-console.log('process.argv[2]');
-console.log(process.argv[2]);
+// console.log('process');
+// console.log(process);
+// console.log('process.argv');
+// console.log(process.argv);
+// console.log('process.argv[2]');
+// console.log(process.argv[2]);
 
 // 在这定义七牛云的地址
 const qiNiuAssets = '//s.qfpay.com.cn/fe_paydone/'
