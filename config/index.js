@@ -1,13 +1,26 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 
+const isOnline = process.argv[2] === 'production'
+console.log('process');
+console.log(process);
+console.log('process.argv');
+console.log(process.argv);
+console.log('process.argv[2]');
+console.log(process.argv[2]);
+
+// 在这定义七牛云的地址
+const qiNiuAssets = '//s.qfpay.com.cn/fe_paydone/'
+
 module.exports = {
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
+    // assetsSubDirectory: '',
+    // assetsPublicPath: '/qudao/v1/static/',
     assetsSubDirectory: '',
-    assetsPublicPath: '/qudao/v1/static/',
+    assetsPublicPath: isOnline ? qiNiuAssets : '/qudao/v1/static/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.

@@ -6,7 +6,9 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "node build/build.js && gulp del && gulp copy"
+    "build": "node build/build.js",
+    "build_online": "node build/build.js production",
+    "build-old": "node build/build.js && gulp del && gulp copy"
   },
   "dependencies": {
     "raven-js": "^3.17.0",
