@@ -32,7 +32,7 @@ export default {
     noCard: '无卡快捷',
     noMerchant: '设置商户默认费率',
     busyCircle: '商圈管理',
-    busyAlliance: '商圈联盟',
+    busyAlliance: '商家联盟',
   },
   app: {
     logout: '退出',

@@ -74,8 +74,7 @@
               <el-menu-item index="/busycircle">{{$t('menus.busyCircle')}}</el-menu-item>
             </el-submenu> -->
             <el-menu-item index="" v-if="$store.state.if_alliance==1  && searchkey.lan=='zh'">
-              <!-- <a href="https://qudao.qfpay.com/bizAlliances/" target="_blank"><i class="icon_left icon_alliance_w"></i> -->
-              <a href="/bizAlliances/" target="_blank"><i class="icon_left icon_alliance_w"></i>{{$t('menus.busyAlliance')}}</a>
+              <a :href="allianceUrl" target="_blank"><i class="icon_left icon_alliance_w"></i>{{$t('menus.busyAlliance')}}</a>
             </el-menu-item>
             <!-- <el-submenu index="14" v-if="$store.state.if_alliance==2  && searchkey.lan=='zh'">
               <template slot="title"><i class="icon_left icon_alliance_w"></i>{{$t('menus.busyAlliance')}}</template>
@@ -324,6 +323,7 @@ export default {
         lan: localStorage.lang,
       },
       allianceQdId: '', //判断商圈联盟id
+      allianceUrl: location.host.indexOf('qudao.qfpay.com')==-1 ? '/bizAlliances/main.html' : '/bizAlliances/',
     }
   },
   created: function() {
