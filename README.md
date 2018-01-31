@@ -13,6 +13,9 @@ npm run dev
 
 # build for production with minification
 npm run build
+
+# 上线执行，将静态资源地址替换成cdn地址
+npm run build_online
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
