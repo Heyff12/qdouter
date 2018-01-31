@@ -10,7 +10,7 @@ const isOnline = process.argv[2] === 'production'
 // console.log(process.argv[2]);
 
 // 在这定义七牛云的地址
-const qiNiuAssets = '//s.qfpay.com.cn/fe_paydone/'
+const qiNiuAssets = '//s.qfpay.com.cn/fe_qudao_portal/'
 
 module.exports = {
   build: {
@@ -19,8 +19,8 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     // assetsSubDirectory: '',
     // assetsPublicPath: '/qudao/v1/static/',
-    assetsSubDirectory: '',
-    assetsPublicPath: isOnline ? qiNiuAssets : '/qudao/v1/static/',
+    assetsSubDirectory: 'static',
+    assetsPublicPath: isOnline ? qiNiuAssets : '/qudao/v1/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
