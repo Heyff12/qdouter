@@ -20,7 +20,7 @@ module.exports = {
     // assetsSubDirectory: '',
     // assetsPublicPath: '/qudao/v1/static/',
     assetsSubDirectory: 'static',
-    assetsPublicPath: isOnline ? qiNiuAssets : '/qudao/v1/',
+    assetsPublicPath: isOnline ? qiNiuAssets : '',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
