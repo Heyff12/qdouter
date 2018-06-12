@@ -118,8 +118,8 @@ export default {
     cardOwnerName: "Please enter Account Name 1 to 25 characters",
     legalName: "Please enter owner’s name in 1-20 characters.",
     loginName: "渠道系统的登录账号以及渠道识别码",
-    loginNameString: "仅支持输入字母或者数字，请重新输入!",
-    loginNameNum: "请输入不超过15个字符的登录名!"
+    loginNameString: "1-15 digits only, alphabet and/or number. Please try again",
+    loginNameNum: "1-15 digits only, alphabet and/or number. Please try again"
   },
   login: {
     qdSystem: "QF Pay Agent System",
@@ -199,7 +199,7 @@ export default {
       ifChain: "是否为连锁店商户：",
       failureCause: "Reject Reason：",
       settleCardStatus: "结算卡更换信息状态：",
-      loginName: "登录名",
+      loginName: "Login Account",
     },
     bodyBank: {
       qdNum: "Agent No.",
@@ -299,7 +299,7 @@ export default {
       telMerchant: "Merchant Mobile No.",
       merch_style: "Merchant Type",
       logoutStatus: "Registration Status",
-      loginName: "登录名",
+      loginName: "Login Account",
       frozen: "冻结",
       unfrozen: "取消冻结"
     }
