@@ -25,9 +25,14 @@
               </el-select>
             </el-form-item>
           </el-col>
-          <el-col :xs="24" :sm="24" :md="12" :lg="6">
+          <!-- <el-col :xs="24" :sm="24" :md="12" :lg="6">
               <el-form-item :label="$t('generalPro.searchBank.tel')" prop="mobile">
                   <el-input v-model.trim="searchkey.mobile"></el-input>
+              </el-form-item>
+          </el-col> -->
+          <el-col :xs="24" :sm="24" :md="12" :lg="6">
+              <el-form-item :label="$t('generalPro.searchBank.loginName')" prop="username">
+                  <el-input v-model.trim="searchkey.username"></el-input>
               </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="12" :lg="6">
@@ -159,7 +164,7 @@ export default {
         id: '',
         name: '',
         status: '',
-        mobile: '',
+        username: '',
         auth_city: ''
       },
       channels: [],
@@ -181,10 +186,21 @@ export default {
           trigger: 'blur'
         }],
         name: yanzheng.test_qd_name(this.$t('generalPro.bodyBank.qdName'), 1, 30, false, 'blur', this),
-        mobile: [{
+        // mobile: [{
+        //   required: false,
+        //   pattern: /^1[0-9]{10}$/,
+        //   message: this.$t('yanzheng.tel'),
+        //   trigger: 'blur'
+        // }],
+        username:[{
           required: false,
-          pattern: /^1[0-9]{10}$/,
-          message: this.$t('yanzheng.tel'),
+          pattern: /^[0-9a-zA-Z]+$/,
+          message: this.$t('yanzheng.loginNameString'),
+          trigger: 'blur'
+        },{
+          min: 1,
+          max: 15,
+          message: this.$t('yanzheng.loginNameNum'),
           trigger: 'blur'
         }],
         auth_city: yanzheng.test_qd_name(this.$t('generalPro.bodyBank.authCity2'), 1, 30, false, 'blur'),
@@ -229,7 +245,7 @@ export default {
         'userid': _this.searchkey.id.replace(/\s/g, ''),
         'name': _this.searchkey.name.replace(/\s/g, ''),
         'status': _this.searchkey.status,
-        'mobile': _this.searchkey.mobile.replace(/\s/g,''),
+        'username': _this.searchkey.username.replace(/\s/g,''),
         'auth_city': _this.searchkey.auth_city.replace(/\s/g,''),
       };
       this.$ajax_log.ajax_get(this, this.list_url, post_data, (data_return) => {

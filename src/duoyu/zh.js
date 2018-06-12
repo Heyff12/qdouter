@@ -198,7 +198,8 @@ export default {
       accountType: "到账类型:",
       ifChain: "是否为连锁店商户:",
       failureCause: "失败原因:",
-      settleCardStatus: "结算卡更换信息状态:"
+      settleCardStatus: "结算卡更换信息状态:",
+      loginName: "登录名",
     },
     bodyBank: {
       qdNum: "渠道编号",
