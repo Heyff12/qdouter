@@ -129,7 +129,7 @@
             <input type="hidden" name="" v-model="cancle_id" />
             <el-form :model="sale" :rules="rules" ref="sale" label-width="100px" class="demo-ruleForm">
                 <el-form-item :label="$t('salesmanlList.bodyBank.removal')" prop="sale_sel">
-                    <el-select v-model="sale.sale_sel" :placeholder="$t('yanzheng.salesmanSel')">
+                    <el-select v-model="sale.sale_sel" :placeholder="$t('yanzheng.salesmanSel')"  filterable>
                         <el-option v-for="sale in saleses" v-bind:value="sale.userid" v-bind:label="sale.name">
                         </el-option>
                     </el-select>
