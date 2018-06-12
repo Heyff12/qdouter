@@ -30,10 +30,10 @@ module.exports = {
     assetsPublicPath: "/",
     proxyTable: {
       "/qudao/v1/api/**": {
-        target: "http://192.168.0.7:8002"
+        target: "http://192.168.0.173:8002"
       },
       "/util/v1/**": {
-        target: "http://192.168.0.7:8002"
+        target: "http://192.168.0.173:8002"
       }
       // '/qudao/v1/api/**': {
       //     target: 'http://192.168.0.7:17202'
