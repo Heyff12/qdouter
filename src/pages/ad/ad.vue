@@ -91,7 +91,14 @@
                 <el-form-item label="广告链接" prop="origin_url">
                     <el-input v-model="add_ader.origin_url" type="text" auto-complete="off" @blur="if_right"></el-input>
                 </el-form-item>
-                <el-form-item label="图片链接" prop="image_url" v-if="add_ader.display_page==1">
+                <el-form-item label="图片链接" prop="image_url" :rules="{
+                    required: this.add_ader.display_page==1 ? true : false,
+                    pattern: /^(http)/,
+                    message: '请输入广告链接，长度在 0 到 500 个字符',
+                    min: 0,
+                    max: 500,
+                    trigger: 'blur'
+                }" v-if="add_ader.display_page==1">
                     <el-input v-model="add_ader.image_url" type="text" auto-complete="off" @blur="if_right"></el-input>
                 </el-form-item>
                 <el-form-item label="有效时间区间：">
@@ -208,14 +215,14 @@ export default {
                     max: 500,
                     trigger: 'blur'
                 }],
-                image_url: [{
-                    required: false,
-                    pattern: /^(http)/,
-                    message: '请输入广告链接，长度在 0 到 500 个字符',
-                    min: 0,
-                    max: 500,
-                    trigger: 'blur'
-                }],
+                // image_url: [{
+                //     required: this.add_ader.display_page==1 ? true : false,
+                //     pattern: /^(http)/,
+                //     message: '请输入广告链接，长度在 0 到 500 个字符',
+                //     min: 0,
+                //     max: 500,
+                //     trigger: 'blur'
+                // }],
                 end_time: [{
                     required: false,
                     message: '请选择生效时间',
