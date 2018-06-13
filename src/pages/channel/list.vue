@@ -439,7 +439,7 @@ export default {
             'userid': _this.searchkey.id.replace(/\s/g, ''),
             'name': _this.searchkey.name.replace(/\s/g, ''),
             'status': _this.searchkey.status,
-            'mobile': _this.searchkey.mobile.replace(/\s/g,''),
+            'username': _this.searchkey.username.replace(/\s/g,''),
             'auth_city': _this.searchkey.auth_city.replace(/\s/g,''),
           };
           let url = this.down_url + '?';
