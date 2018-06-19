@@ -1,67 +1,67 @@
 <template>
     <div>
         <div class="right_head">
-            操作记录
+            {{$t('menus.merChainList')}}
         </div>
         <div class="right_body">
-            <el-form label-width="120px" class="demo-ruleForm" :model="searchkey" :rules="searchkey_rule" ref="searchkey">
+            <el-form label-width="150px" class="demo-ruleForm" :model="searchkey" :rules="searchkey_rule" ref="searchkey">
                 <el-row :gutter="10">
                     <el-col :xs="24" :sm="24" :md="24" :lg="24">
-                        <el-form-item label="操作时间:" prop="">
-                            <el-date-picker v-model="searchkey.start_time" type="datetime" align="right" placeholder="选择开始时间" :picker-options="pickerOptions_s" format="yyyy-MM-dd HH:mm:ss" :default-time="['00:00:00']" popper-class="no_now" @change="start_change" :editable="false" :clearable="false">
+                        <el-form-item :label="$t('merchantlList.searchBank.operateTime')+':'" prop="">
+                            <el-date-picker v-model="searchkey.start_time" type="datetime" align="right" placeholder="" :picker-options="pickerOptions_s" format="yyyy-MM-dd HH:mm:ss" :default-time="['00:00:00']" popper-class="no_now" @change="start_change" :editable="false" :clearable="false">
                             </el-date-picker>
                             <span>至</span>  
-                            <el-date-picker v-model="searchkey.end_time" type="datetime" align="right" placeholder="选择结束时间" :picker-options="pickerOptions_e" format="yyyy-MM-dd HH:mm:ss" :default-time="['23:59:59']" popper-class="no_now noAnotherMonth" :editable="false" :clearable="false">
+                            <el-date-picker v-model="searchkey.end_time" type="datetime" align="right" placeholder="" :picker-options="pickerOptions_e" format="yyyy-MM-dd HH:mm:ss" :default-time="['23:59:59']" popper-class="no_now noAnotherMonth" :editable="false" :clearable="false">
                             </el-date-picker>
                         </el-form-item>
                     </el-col>
                     <el-col :xs="24" :sm="24" :md="24" :lg="24"></el-col>
                     <el-col :xs="24" :sm="24" :md="12" :lg="6">
-                        <el-form-item label="操作类型:">
+                        <el-form-item :label="$t('merchantlList.searchBank.operateStyle')+':'">
                             <el-select v-model="searchkey.style" placeholder="">
-                                <el-option label="全部" value=""></el-option>
-                                <el-option label="批量修改" value="1"></el-option>
-                                <el-option label="批量上传" value="2"></el-option>
+                                <el-option :label="$t('app.all')" value=""></el-option>
+                                <el-option :label="$t('merchantlList.searchBank.mendMuch')" value="1"></el-option>
+                                <el-option :label="$t('merchantlList.searchBank.createMuch')" value="2"></el-option>
                             </el-select>
                         </el-form-item>
                     </el-col>
                     <el-col :xs="24" :sm="24" :md="12" :lg="6">
-                        <el-form-item label="操作状态:">
+                        <el-form-item :label="$t('merchantlList.searchBank.operateStatus')+':'">
                             <el-select v-model="searchkey.status" placeholder="">
-                                <el-option label="全部" value=""></el-option>
-                                <el-option label="成功" value="1"></el-option>
-                                <el-option label="失败" value="2"></el-option>
+                                <el-option :label="$t('app.all')" value=""></el-option>
+                                <el-option :label="$t('generalPro.searchBank.success')" value="1"></el-option>
+                                <el-option :label="$t('generalPro.searchBank.failure')" value="2"></el-option>
                             </el-select>
                         </el-form-item>
                     </el-col>
                     <el-col :xs="24" :sm="24" :md="12" :lg="6">
                         <el-form-item label-width="0" class="t_c">
-                            <el-button type="primary" @click="search_sub_ajax">查询</el-button>
+                            <el-button type="primary" @click="search_sub_ajax">{{$t('app.search')}}</el-button>
                         </el-form-item>
                     </el-col>
                 </el-row>
             </el-form>
             <template>
                 <el-table :data="transfer_list_now" border stripe style="width: 100%">
-                    <el-table-column prop="operate_time" label="操作时间" resizable min-width="180px">
+                    <el-table-column prop="operate_time" :label="$t('merchantlList.searchBank.operateTime')" resizable min-width="180px">
                     </el-table-column>
-                    <el-table-column label="类型" resizable min-width="100px">
+                    <el-table-column :label="$t('merchantlList.searchBank.operateStyle')" resizable min-width="100px">
                         <template scope="scope">
-                            <span v-if="scope.row.style==1">批量修改</span>
-                            <span v-if="scope.row.style==2">批量上传</span>
+                            <span v-if="scope.row.style==1">{{$t('merchantlList.searchBank.mendMuch')}}</span>
+                            <span v-if="scope.row.style==2">{{$t('merchantlList.searchBank.createMuch')}}</span>
                         </template>
                     </el-table-column>
-                    <el-table-column prop="file_name" label="文件名称" resizable min-width="120px">
+                    <el-table-column prop="file_name" :label="$t('merchantlList.bodyBank.filename')" resizable min-width="120px">
                     </el-table-column>
-                    <el-table-column label="状态" resizable min-width="120px">
+                    <el-table-column :label="$t('merchantlList.searchBank.operateStatus')" resizable min-width="120px">
                         <template scope="scope">
-                            <span v-if="scope.row.status==1">成功</span>
-                            <span v-if="scope.row.status==2">失败</span>
+                            <span v-if="scope.row.status==1">{{$t('generalPro.searchBank.success')}}</span>
+                            <span v-if="scope.row.status==2">{{$t('generalPro.searchBank.failure')}}</span>
                         </template>
                     </el-table-column>
-                    <el-table-column label="详情" resizable min-width="180px">
+                    <el-table-column :label="$t('merchantlList.bodyBank.detail')" resizable min-width="180px">
                         <template scope="scope">
-                            <el-button type="text" @click="getDetail(scope.row)" v-if="scope.row.status==2">详情</el-button>
+                            <el-button type="text" @click="getDetail(scope.row)" v-if="scope.row.status==2">{{$t('merchantlList.bodyBank.detail')}}</el-button>
                         </template>
                     </el-table-column>
                 </el-table>
@@ -145,7 +145,7 @@ export default {
             let _this = this;
             if (this.searchkey.start_time - this.searchkey.end_time > 0) {
                 this.$message({
-                    message: "结束时间小于开始时间",
+                    message: this.$t('yanzheng.timeThan'),
                     type: "error"
                 });
                 return false;
@@ -158,34 +158,10 @@ export default {
                 'start_time': _this.get_datetime(_this.searchkey.start_time),
                 'end_time': _this.get_datetime(_this.searchkey.end_time),
             };
-            this.$http.get(this.list_url, {
-                    'params': post_data,
-                    before: function() {
-                        _this.loading = true;
-                    }
-                })
-                .then(function(response) {
-                    _this.loading = false;
-                    let data_return = response.body;
-                    if (data_return.respcd == '0000') {
-                        _this.pages_all = data_return.data.total_cnt;
-                        _this.transfer_list_now = data_return.data.records;
-                    } else {
-                        if (data_return.respmsg) {
-                            _this.toastmsg = data_return.respmsg;
-                        } else {
-                            _this.toastmsg = data_return.resperr;
-                        }
-                        _this.visible_toast = true;
-                    }
-                }, function(response) {
-                    _this.loading = false;
-                    _this.visible_toast = true;
-                    _this.toastmsg = '网络超时!';
-                })
-                .catch(function(response) {
-                    _this.loading = false;
-                });
+            this.$ajax_log.ajax_get(this, this.list_url, post_data, (data_return) => {
+                _this.pages_all = data_return.data.total_cnt;
+                _this.transfer_list_now = data_return.data.records;
+            });
         },
         //提交查询--后台处理
         search_sub_ajax: function() {

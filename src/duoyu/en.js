@@ -354,7 +354,12 @@ export default {
       title: "Merchant Info"
     },
     searchBank: {
-      download: "Download"
+      download: "Download",
+      operateTime: "Last Modify Time",
+      operateStyle: "Style",
+      operateStatus: "Status",
+      mendMuch: "批量修改",
+      createMuch: "Batch Create"
     },
     bodyBank: {
       feeDetail: "Fee Rate Details",
@@ -393,7 +398,9 @@ export default {
       bankOwnerName: "Account Name:",
       cardType: "Account Type:",
       settleType: "Settlement Type:",
-      noMend: "银行卡已在审核中，请耐心等待"
+      noMend: "银行卡已在审核中，请耐心等待",
+      filename: "File Name",
+      detail: "detail"
     }
   },
   salesmanlList: {

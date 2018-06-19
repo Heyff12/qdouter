@@ -354,7 +354,12 @@ export default {
       title: "商户信息列表"
     },
     searchBank: {
-      download: "商户信息下载"
+      download: "商户信息下载",
+      operateTime: "操作时间",
+      operateStyle: "操作类型",
+      operateStatus: "操作状态",
+      mendMuch: "批量修改",
+      createMuch: "批量创建"
     },
     bodyBank: {
       feeDetail: "商户费率明细",
@@ -393,7 +398,9 @@ export default {
       bankOwnerName: "账户名称:",
       cardType: "银行卡类型:",
       settleType: "清算类型:",
-      noMend: "银行卡已在审核中，请耐心等待"
+      noMend: "银行卡已在审核中，请耐心等待",
+      filename: "文件名称",
+      detail: "详情"
     }
   },
   salesmanlList: {
