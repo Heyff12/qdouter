@@ -15,6 +15,7 @@ export default {
     qdManage: "渠道管理",
     addQd: "新增渠道",
     merManage: "商户管理",
+    merChainManage: "连锁商户管理",
     salesmanManage: "业务员管理",
     tradeManage: "交易管理",
     forms: "统计报表",

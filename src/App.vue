@@ -24,6 +24,7 @@
             <el-submenu index="3">
               <template slot="title"><i class="icon_left icon_shanghu_w"></i>{{$t('menus.merManage')}}</template>
               <el-menu-item index="/merchant_index">{{$t('menus.merManage')}}</el-menu-item>
+              <el-menu-item index="/merchant_chain">{{$t('menus.merChainManage')}}</el-menu-item>
             </el-submenu>
             <el-submenu index="4">
               <template slot="title"><i class="icon_left icon_slsm_w"></i>{{$t('menus.salesmanManage')}}</template>

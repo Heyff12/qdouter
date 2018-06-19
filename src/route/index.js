@@ -2,6 +2,7 @@
 import home from '../pages/home'
 import login from '../pages/login/index'
 import merchant_index from '../pages/merchant/index'
+import merchant_chain from '../pages/merchant/chain'
 import channel_index from '../pages/channel/index'
 import channel_list from '../pages/channel/list'
 import channel_base from '../pages/channel/channel_base'
@@ -41,6 +42,7 @@ export default [
     { path: '/login', name: 'login', meta: { auth: false }, component: login },
     //商户管理
     { path: '/merchant_index', name: 'merchant_index', component: merchant_index },
+    { path: '/merchant_chain', name: 'merchant_chain', component: merchant_chain },
     //渠道管理
     { path: '/channel_index', name: 'channel_index', component: channel_index },
     //查看渠道信息
