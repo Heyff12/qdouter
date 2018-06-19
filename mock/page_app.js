@@ -22,6 +22,8 @@ require('./mock_ad');
 require('./mock_nocard');
 //商圈管理
 require('./mock_busy');
+//公告管理
+require('./mock_notice');
 // 使用 Mock
 var Mock = require('mockjs');
 //渠道基本信息

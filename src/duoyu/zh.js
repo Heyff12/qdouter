@@ -324,6 +324,15 @@ export default {
       merchant_d: "入网商户数"
     }
   },
+  noticeList: {
+    bodyBank: {
+      createTime: "创建时间",
+      stick: "置顶",
+      delete: "删除",
+      Detail: "公告详细",
+      ifDel: "您确认要删除该公告？"
+    }
+  },
   channelList: {
     titleBank: {
       title: "渠道信息列表"

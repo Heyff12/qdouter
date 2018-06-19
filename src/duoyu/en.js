@@ -51,9 +51,9 @@ export default {
     newPass_input: "",
     newPass2_input: "6 to 20 characters",
     newPass2_error: "2 passwords does not match",
-    noticeD: "公告详情", //no
-    noticeTitle: "公告标题", //no
-    noticeDetail: "公告内容", //no
+    noticeD: "公告详情", 
+    noticeTitle: "公告标题", 
+    noticeDetail: "公告内容", 
     timeout: "Time Out",
     dataLoading: "Loading",
     save: "Save",
@@ -322,6 +322,15 @@ export default {
       merchant_x: "In a Week/MM",
       merchant_y: "Merchants/Date",
       merchant_d: "Merchants"
+    }
+  },
+  noticeList: {
+    bodyBank: {
+      createTime: "创建时间",
+      stick: "置顶",
+      delete: "删除",
+      Detail: "公告详细",
+      ifDel: "您确认要删除该公告？"
     }
   },
   channelList: {

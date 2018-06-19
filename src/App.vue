@@ -54,10 +54,10 @@
                 <el-menu-item index="/ad_ad">{{$t('menus.ad')}}</el-menu-item>
               </el-submenu>
             </template>
-            <el-submenu index="9" v-show="searchkey.lan=='zh'">
+            <el-submenu index="9">
               <template slot="title"><i class="icon_left icon_notice_w"></i>{{$t('menus.notice')}}</template>
               <el-menu-item index="/notice">{{$t('menus.notice')}}</el-menu-item>
-              <el-menu-item index="/addNotice">{{$t('menus.addNotice')}}</el-menu-item>
+              <el-menu-item index="/addNotice" v-show="searchkey.lan=='zh'">{{$t('menus.addNotice')}}</el-menu-item>
             </el-submenu>
             <template v-if="$store.state.qd_level==1 && searchkey.lan=='zh'">
               <el-submenu index="10">
