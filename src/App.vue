@@ -2052,7 +2052,18 @@ table {
     display: none;
   }
 }
-
+//隐藏日期插件的左右换月按钮
+.noAnotherMonth {
+  .el-date-picker__header button {
+    display: none;
+  }
+}
+//隐藏日期插件头部输入框
+.noDateHead {
+  .el-date-picker__time-header {
+    display: none;
+  }
+}
 //列表搜索栏--时间输入框变短--0000-09
 .time_date_short .el-date-editor.el-input {
   width: 100%;
