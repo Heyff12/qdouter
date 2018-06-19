@@ -16,6 +16,7 @@ export default {
     addQd: "New Agent",
     merManage: "Merchant",
     merChainManage: "Chain Store Management",
+    merChainList: "Records",
     salesmanManage: "Sales Rep.",
     tradeManage: "Transactions",
     forms: "Reports",
