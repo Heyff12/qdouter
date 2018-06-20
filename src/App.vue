@@ -1738,7 +1738,42 @@ body {
     display: block;
   }
 }
-
+.uploadFormButton {
+  width: auto;
+  max-width: 200px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: @grey;
+  background: white;
+  border: 1px solid @grey;
+  padding: 0 15px;
+  // box-sizing: border-box;
+  display: inline-block;
+  border-radius: 4px;
+  cursor: pointer;
+  p {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+  }
+  .ipload {
+    width: 100%;
+    height: 40px;
+    position: relative;
+    input {
+      width: 100%;
+      height: 40px;
+      background: 0 0;
+      border: none;
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+}
 //*自定义组建样式---------------------左侧导航z-index:12------------------------------------------------------------------------------------------------*/
 //加载动画load-------------------------z-index: 1020 1021;
 #load_small_bg {
