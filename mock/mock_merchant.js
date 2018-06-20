@@ -274,3 +274,55 @@ var transfer_info = {
     }
 };
 Mock.mock(/qudao\/v1\/api\/mchnt\/transfer/, "post", transfer_info);
+
+
+//连锁商户列表
+var chain_info = {
+    respcd: "0000",
+    respmsg: "OK",
+    resperr: "",
+    data: {
+        mchnt_cnt: 200, // 商户数
+        page: 1,
+        page_size: 10,
+        "mchnt_infos|50-80": [{
+            "mchnt_uid|+1": 789, 
+            username: Random.name(), 
+            jointime: Random.datetime("yyyy-MM-dd HH:mm:ss"), // 注册时间 
+            mchnt_name: Random.string(10), // 商户名称
+            "fee_ratios|1": [{
+                    // 费率
+                    wechat_fee: 12,
+                    alipay_fee: 34,
+                    jd_fee: 56,
+                    qqwallet_fee: 78,
+                    swipecard_fee: 90
+                },
+                null
+            ]
+        }]
+    }
+};
+Mock.mock(/qudao\/v1\/api\/chain\/list/, "get", chain_info);
+
+//操作记录列表
+var oprate_info = {
+    respcd: "0000",
+    respmsg: "OK",
+    resperr: "",
+    data: {
+        total_cnt: 200, // 商户数
+        page: 1,
+        page_size: 10,
+        "op_infos|50-80": [{
+            "opid|+1": 34783748937, //该条操作记录id
+            "optype|1": [1,2],
+            "status|1": [1,2],
+            "filename": Random.string(10,30),
+            "succ_cnt": 10,
+            "fail_cnt": 1,
+            "optime": Random.datetime("yyyy-MM-dd HH:mm:ss"),
+        }]
+    }
+};
+Mock.mock(/qudao\/v1\/api\/chain\/oprecord\/list/, "get", oprate_info);
