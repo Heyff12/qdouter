@@ -53,9 +53,9 @@ export default {
     newPass_input: "",
     newPass2_input: "6 to 20 characters",
     newPass2_error: "2 passwords does not match",
-    noticeD: "公告详情", 
-    noticeTitle: "公告标题", 
-    noticeDetail: "公告内容", 
+    noticeD: "Announcement Detail", 
+    noticeTitle: "Title", 
+    noticeDetail: "Contents", 
     timeout: "Time Out",
     dataLoading: "Loading",
     save: "Save",
@@ -328,11 +328,11 @@ export default {
   },
   noticeList: {
     bodyBank: {
-      createTime: "创建时间",
-      stick: "置顶",
-      delete: "删除",
-      Detail: "公告详细",
-      ifDel: "您确认要删除该公告？"
+      createTime: "Create Time",
+      stick: "Top",
+      delete: "Delete",
+      Detail: "Announcement Detail",
+      ifDel: "Confirm to delete the announcement?"
     }
   },
   channelList: {
