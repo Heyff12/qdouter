@@ -303,7 +303,9 @@ export default {
       logoutStatus: "注销状态",
       loginName: "登录名",
       frozen: "冻结",
-      unfrozen: "取消冻结"
+      unfrozen: "取消冻结",
+      shopName: "店铺名称",
+      loginName: "登录账号"
     }
   },
   home: {
@@ -351,7 +353,8 @@ export default {
   },
   merchantlList: {
     titleBank: {
-      title: "商户信息列表"
+      title: "商户信息列表",
+      sonTitle: "子商户列表"
     },
     searchBank: {
       download: "商户信息下载",
@@ -359,7 +362,8 @@ export default {
       operateStyle: "操作类型",
       operateStatus: "操作状态",
       mendMuch: "批量修改",
-      createMuch: "批量创建"
+      createMuch: "批量创建",
+      downId:'下载商户初始账号'
     },
     bodyBank: {
       feeDetail: "商户费率明细",
@@ -400,7 +404,8 @@ export default {
       settleType: "清算类型:",
       noMend: "银行卡已在审核中，请耐心等待",
       filename: "文件名称",
-      detail: "详情"
+      detail: "详情",
+      selMerchant: "请选择待下载商户"
     }
   },
   salesmanlList: {

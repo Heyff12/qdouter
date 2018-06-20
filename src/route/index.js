@@ -4,6 +4,8 @@ import login from '../pages/login/index'
 import merchant_index from '../pages/merchant/index'
 import merchant_chain from '../pages/merchant/chain'
 import merchant_list from '../pages/merchant/operatelist'
+import add_chain from '../pages/merchant/add_chain'
+import son_list from '../pages/merchant/sonlist'
 import channel_index from '../pages/channel/index'
 import channel_list from '../pages/channel/list'
 import channel_base from '../pages/channel/channel_base'
@@ -45,6 +47,8 @@ export default [
     { path: '/merchant_index', name: 'merchant_index', component: merchant_index },
     { path: '/merchant_chain', name: 'merchant_chain', component: merchant_chain },
     { path: '/merchant_list', name: 'merchant_list', component: merchant_list },
+    { path: '/add_chain', name: 'add_chain', component: add_chain },
+    { path: '/son_list', name: 'son_list', component: son_list },
     //渠道管理
     { path: '/channel_index', name: 'channel_index', component: channel_index },
     //查看渠道信息

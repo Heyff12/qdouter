@@ -303,7 +303,9 @@ export default {
       logoutStatus: "Registration Status",
       loginName: "Login Account",
       frozen: "冻结",
-      unfrozen: "取消冻结"
+      unfrozen: "取消冻结",
+      shopName: "Merchant Name",
+      loginName: "Login Account"
     }
   },
   home: {
@@ -351,7 +353,8 @@ export default {
   },
   merchantlList: {
     titleBank: {
-      title: "Merchant Info"
+      title: "Merchant Info",
+      sonTitle: "子商户列表"
     },
     searchBank: {
       download: "Download",
@@ -359,7 +362,8 @@ export default {
       operateStyle: "Style",
       operateStatus: "Status",
       mendMuch: "批量修改",
-      createMuch: "Batch Create"
+      createMuch: "Batch Create",
+      downId:'Download inital account'
     },
     bodyBank: {
       feeDetail: "Fee Rate Details",
@@ -400,7 +404,8 @@ export default {
       settleType: "Settlement Type:",
       noMend: "银行卡已在审核中，请耐心等待",
       filename: "File Name",
-      detail: "detail"
+      detail: "detail",
+      selMerchant: "请选择待下载商户"
     }
   },
   salesmanlList: {

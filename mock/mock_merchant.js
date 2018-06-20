@@ -305,6 +305,26 @@ var chain_info = {
 };
 Mock.mock(/qudao\/v1\/api\/chain\/list/, "get", chain_info);
 
+//子商户列表
+var chain_info = {
+    respcd: "0000",
+    respmsg: "OK",
+    resperr: "",
+    data: {
+        mchnt_cnt: 200, // 商户数
+        page: 1,
+        page_size: 10,
+        "branch_infos|50-80": [{
+            "id|+1": 789, 
+            "mchnt_uid|+1": 232332,
+            "shopname": Random.string(10),
+            "username": Random.name(),
+            "join_dtm": Random.datetime("yyyy-MM-dd HH:mm:ss")
+        }]
+    }
+};
+Mock.mock(/qudao\/v1\/api\/chain\/branch\/list/, "get", chain_info);
+
 //操作记录列表
 var oprate_info = {
     respcd: "0000",
