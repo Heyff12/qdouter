@@ -82,6 +82,27 @@ let crash_enlarge_format = (val, currency) => {
   }
   return value;
 }
+
+//判断搜索项是否填写，填写则加入 请求的发送数据中 if_kong是否需要替换\s,比如下拉菜、单选项、日期
+let searchPost = (val, key, data, if_kong) => {
+  if (val.toString().length <= 0) return false;
+  if (if_kong) {
+      data[key] = val;
+  } else {
+      data[key] = val.replace(/\s/g, "");
+  }
+}
+
+//判断修改项是否变化，变化则加入 请求的发送数据中
+let mendPost = (val, key, data, originVal) => {
+  if (val !== originVal) {
+      data[key] = val
+  }
+}
+
+
 exports.crash_format = crash_format
 exports.crash_if_format = crash_if_format
 exports.crash_enlarge_format = crash_enlarge_format
+exports.searchPost = searchPost
+exports.mendPost = mendPost
