@@ -78,7 +78,7 @@ export default {
         });
         return false;
       }
-      let url = this.down_url + "?mchnt_uids=" + this.product;
+      let url = this.down_url + "?big_userid="+ this.pageId +"mchnt_uids=" + this.product;
       window.open(url);
     },
     //根据style判断是否获取信息

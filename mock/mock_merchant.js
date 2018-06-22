@@ -282,14 +282,16 @@ var chain_info = {
     respmsg: "OK",
     resperr: "",
     data: {
-        mchnt_cnt: 200, // 商户数
+        total_cnt: 200, // 商户数
         page: 1,
         page_size: 10,
         "mchnt_infos|50-80": [{
             "mchnt_uid|+1": 789, 
+            "qd_uid|+1": 789, 
             username: Random.name(), 
-            jointime: Random.datetime("yyyy-MM-dd HH:mm:ss"), // 注册时间 
-            mchnt_name: Random.string(10), // 商户名称
+            join_dtm: Random.datetime("yyyy-MM-dd HH:mm:ss"), // 注册时间 
+            name: Random.string(10), // 商户名称
+            "status|1":[0,1],
             "fee_ratios|1": [{
                     // 费率
                     wechat_fee: 12,
