@@ -221,7 +221,7 @@ export default {
           {
             required: false,
             pattern: /^[0-9\s]{0,300}$/,
-            message: this.$t('yanzheng.chainId'),
+            message: this.$t("yanzheng.chainId"),
             trigger: "blur"
           }
         ],
@@ -229,7 +229,7 @@ export default {
           {
             required: false,
             pattern: /^[0-9\s]{0,300}$/,
-            message: this.$t('yanzheng.qdId'),
+            message: this.$t("yanzheng.qdId"),
             trigger: "blur"
           }
         ],
@@ -237,13 +237,13 @@ export default {
           {
             required: false,
             pattern: /^[0-9a-zA-Z]+$/,
-            message: this.$t('yanzheng.loginNameString'),
+            message: this.$t("yanzheng.loginNameString"),
             trigger: "blur"
           },
           {
             min: 1,
             max: 15,
-            message: this.$t('yanzheng.loginNameNum'),
+            message: this.$t("yanzheng.loginNameNum"),
             trigger: "blur"
           }
         ],
@@ -251,7 +251,7 @@ export default {
           {
             required: false,
             pattern: /^[\u4e00-\u9fa5a-zA-Z0-9\s]{1,30}$/,
-            message: this.$t('yanzheng.merNameL'),
+            message: this.$t("yanzheng.merNameL"),
             trigger: "blur"
           }
         ]
@@ -278,7 +278,7 @@ export default {
       merchants_now: [], //当前展示信息
       addId: "", //添加分店的类型- 的商户id
       binddata: {
-        type: '1',
+        type: "1",
         id: "",
         ids: ""
       },
@@ -287,7 +287,7 @@ export default {
           {
             required: true,
             pattern: /^[0-9\s]{0,300}$/,
-            message: this.$t('yanzheng.chainId'),
+            message: this.$t("yanzheng.chainId"),
             trigger: "blur"
           }
         ],
@@ -295,7 +295,7 @@ export default {
           {
             required: true,
             pattern: /^[\d+\s\,{1}(?=\d+\s)]{1,10000}$/,
-            message: this.$t('yanzheng.shopId'),
+            message: this.$t("yanzheng.shopId"),
             trigger: "blur"
           }
         ]
@@ -350,7 +350,7 @@ export default {
       searchPost(this.searchkey.username, "username", post_data);
       searchPost(this.searchkey.name, "name", post_data);
       searchPost(this.searchkey.status, "status", post_data);
-      this.$ajax_log.ajax_get(this, this.list_url, post_data, (data_return) => {
+      this.$ajax_log.ajax_get(this, this.list_url, post_data, data_return => {
         _this.pages_all = data_return.data.mchnt_cnt;
         _this.merchants_now = data_return.data.mchnt_infos;
       });
@@ -432,7 +432,9 @@ export default {
     //加分店
     addShop(val) {
       this.addId = val ? val : "";
-      this.addTitle = val ? this.$t('merchantlList.bodyBank.addshop') : this.$t('merchantlList.searchBank.addShops');
+      this.addTitle = val
+        ? this.$t("merchantlList.bodyBank.addshop")
+        : this.$t("merchantlList.searchBank.addShops");
       // console.log(val);
       // if(val){
       //   this.addId = val;
@@ -452,12 +454,18 @@ export default {
       let _this = this;
       if (!this.addUpData.fileid) {
         this.$message({
-          message: this.$t('merchantlList.bodyBank.upFirst'),
+          message: this.$t("merchantlList.bodyBank.upFirst"),
           type: "warning"
         });
         return false;
       }
-      this.$ajax_log.ajax_post(this, this.add_url, this.addUpData.fileid, (data_return) => {
+      let post_data = {
+        fileid: this.addUpData.fileid
+      };
+      if (this.addId) {
+        post_data.big_userid=this.addId;
+      }
+      this.$ajax_log.ajax_post(this, this.add_url, post_data, data_return => {
         _this.get_list();
       });
     },
@@ -469,14 +477,11 @@ export default {
       // console.log(file);
       formdata.append("content", file);
       formdata.append("file_name", file.name);
-      if (this.addId) {
-        formdata.append("big_userid", this.addId);
-      }
-      this.$ajax_log.ajax_post(this, this.addUp_url, formdata, (data_return) => {
+      this.$ajax_log.ajax_post(this, this.addUp_url, formdata, data_return => {
         _this.addUpData.fileid = data_return.data.fileid;
         _this.addUpData.total_cnt = data_return.data.total_cnt;
         _this.$message({
-          message: this.$t('merchantlList.bodyBank.upSuccess'),
+          message: this.$t("merchantlList.bodyBank.upSuccess"),
           type: "success"
         });
       });
@@ -490,11 +495,11 @@ export default {
       formdata.append("content", file);
       formdata.append("file_name", file.name);
       // console.log(formdata);
-      this.$ajax_log.ajax_post(this, this.mendUp_url, formdata, (data_return) => {
+      this.$ajax_log.ajax_post(this, this.mendUp_url, formdata, data_return => {
         _this.mendData.fileid = data_return.data.fileid;
         _this.mendData.total_cnt = data_return.data.total_cnt;
         _this.$message({
-          message: this.$t('merchantlList.bodyBank.upSuccess'),
+          message: this.$t("merchantlList.bodyBank.upSuccess"),
           type: "success"
         });
       });
@@ -518,20 +523,25 @@ export default {
       let _this = this;
       if (!this.mendData.fileid) {
         this.$message({
-          message: this.$t('merchantlList.bodyBank.upFirst'),
+          message: this.$t("merchantlList.bodyBank.upFirst"),
           type: "warning"
         });
         return false;
       }
-      this.$ajax_log.ajax_post(this, this.mend_url, this.mendData.fileid, (data_return) => {
-        _this.get_list();
-      });
+      this.$ajax_log.ajax_post(
+        this,
+        this.mend_url,
+        this.mendData.fileid,
+        data_return => {
+          _this.get_list();
+        }
+      );
     },
     //关联解绑
     bindShop() {
       this.bindModal = true;
     },
-    bindSure(){},
+    bindSure() {}
   }
 };
 </script>
