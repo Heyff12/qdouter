@@ -28,7 +28,7 @@ require('./mock_notice');
 var Mock = require('mockjs');
 
 Mock.setup({
-  timeout: "200-3000"
+  timeout: "200-1000"
 });
 
 

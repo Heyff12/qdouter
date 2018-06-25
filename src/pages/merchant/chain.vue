@@ -104,28 +104,21 @@
     <bounced :visible="addShopModal" :newclass="big_bounced">
       <span slot="header">{{addTitle}}<i class="iClose el-icon-close"  @click="addShopModal=false"></i></span>
       <el-form ref="addShopModal" label-width="100px" class="demo-ruleForm" label-position="left">
-        <template v-if="$store.state.language=='zh'">
-          <el-form-item label="下载模板:">
-            <el-button type="text" @click="download">点击下载</el-button>
-          </el-form-item>  
-        </template> 
-        <template v-if="$store.state.language=='en'">
-          <el-form-item label="" label-width="0">
-            1、<el-button type="text" @click="downMend">{{$t('merchantlList.bodyBank.addTip1')}}</el-button>
-          </el-form-item>      
-          <el-form-item label="" label-width="0">
-            2、{{$t('merchantlList.bodyBank.addTip2')}}
-          </el-form-item>      
-          <el-form-item label="" label-width="0">
-            3、{{$t('merchantlList.bodyBank.addTip3')}}
-          </el-form-item> 
-        </template>        
+        <el-form-item label="" label-width="0">
+          1、<el-button type="text" @click="download">{{$t('merchantlList.bodyBank.addTip1')}}</el-button>
+        </el-form-item>      
+        <el-form-item label="" label-width="0">
+          2、{{$t('merchantlList.bodyBank.addTip2')}}
+        </el-form-item>      
+        <el-form-item label="" label-width="0">
+          3、{{$t('merchantlList.bodyBank.addTip3')}}
+        </el-form-item> 
         <el-form-item :label="$t('merchantlList.bodyBank.mendTip4')+'：'">
           <form class="uploadFormButton" id="uploadFormButton" enctype="multipart/form-data">
             <div class="ipload">
               <p>{{$t('merchantlList.bodyBank.mendTip4')}}</p>
               <input type="file" name="upload" size="32" 
-              accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" 
+              accept="application/vnd.ms-excel" 
               class="file file_style" value="" v-on:change="uploadFile($event)" />
             </div>
           </form>
@@ -161,7 +154,7 @@
             <div class="ipload">
               <p>{{$t('merchantlList.bodyBank.mendTip4')}}</p>
               <input type="file" name="mend" size="32" 
-              accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" 
+              accept="application/vnd.ms-excel" 
               class="file file_style" value="" v-on:change="uploadFile1($event)" />
             </div>
           </form>

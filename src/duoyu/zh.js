@@ -437,9 +437,9 @@ export default {
       mendTip2:"上传修改后的文件，仅填写需要修改的部分",
       mendTip3:"每次最多上传500条",
       mendTip4:"点击上传",
-      addTip1:"",
-      addTip2:"",
-      addTip3:""
+      addTip1:"下载模板",
+      addTip2:"上传填完商户信息的文件",
+      addTip3:"每个文件最多传500条数据，且必须是.xls的格式"
     }
   },
   salesmanlList: {

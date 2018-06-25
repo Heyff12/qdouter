@@ -439,7 +439,7 @@ export default {
       mendTip4:"Upload File",
       addTip1:"Download the template first",
       addTip2:"Re-upload when finished",
-      addTip3:"Up to 5000 entries can be uploaded at each time in one file. The file format must be .xls"
+      addTip3:"Up to 500 entries can be uploaded at each time in one file. The file format must be .xls"
     }
   },
   salesmanlList: {

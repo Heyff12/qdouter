@@ -22,11 +22,6 @@
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="渠道ID" prop="qd_uid">
-                <el-input v-model="base.qd_uid" :disabled="pageStyle=='scan'"></el-input>
-              </el-form-item>
-            </el-col>
-            <el-col :xs="24" :sm="24" :md="12" :lg="8">
               <el-form-item label="业务员登录账号" prop="slsm_username">
                 <el-input v-model="base.slsm_username" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
@@ -139,7 +134,6 @@ export default {
       base: {
         brand_name: "",
         company_name: "",
-        qd_uid: "",
         contact_name: "",
         contact_email: "",
         mchnt_mcc: "",
@@ -167,14 +161,6 @@ export default {
             min: 1,
             max: 128,
             message: "请输入公司名称，长度在 1 到 128 个字符",
-            trigger: "blur"
-          }
-        ],
-        qd_uid: [
-          {
-            required: true,
-            pattern: /^[0-9\s]{0,300}$/,
-            message: "请输入渠道ID，只能包含数字",
             trigger: "blur"
           }
         ],
