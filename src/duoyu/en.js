@@ -125,7 +125,19 @@ export default {
     loginNameNum: "1-15 digits only, alphabet and/or number. Please try again",
     chainId:"Please enter Group ID, numbers only",
     qdId:"Please enter Agent ID, numbers only",
-    shopId:"Please enter the store ID，multiple stores width a comma ',' break to distinguish"
+    shopId:"Please enter the store ID，multiple stores width a comma ',' break to distinguish",
+    bandName:"Enter bank brand name, 1 to 128 characters",
+    companyName:"Enter company name, 1 to 128 characters",
+    SalesName:"Enter sales account, 1 to 15 characters",
+    merStyle:"Please enter Merchant category code, numbers only",
+    contact:"Enter contact, 1 to 128 characters",
+    contactEmail:"Email",
+    bank:"Enter bank name, 1 to 128 characters",
+    branch:"Enter branch of bank, 1 to 128 characters",
+    bankcode:"Enter account, 1 to 128 characters",
+    bankNum:"Enter account No., 1 to 128 characters",
+    swift:"Enter swift code, 1 to 128 characters",
+    rule:"Enter HK rules, 1 to 128 characters"
   },
   login: {
     qdSystem: "QF Pay Agent System",
@@ -439,7 +451,23 @@ export default {
       mendTip4:"Upload File",
       addTip1:"Download the template first",
       addTip2:"Re-upload when finished",
-      addTip3:"Up to 500 entries can be uploaded at each time in one file. The file format must be .xls"
+      addTip3:"Up to 500 entries can be uploaded at each time in one file. The file format must be .xls",
+      company:"Company Info",
+      bank:"Bank Info",
+      product:"Product Info",
+      brand:"Brand Name",
+      companyName:"Company Name",
+      merStyle:"Merchant Category Code",
+      salName:"Sales Account",
+      contactName:"Contact",
+      contactEmail:"Contact Email",
+      bankNameGet:"Bank Name",
+      branchBank:"Branch of bank",
+      bankNameAccount:"Account",
+      bankCode:"Account No.",
+      bankNum:"Swift Code",
+      rules:"HK Rules",
+      addSuce:"Success"
     }
   },
   salesmanlList: {

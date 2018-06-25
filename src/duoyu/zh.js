@@ -125,7 +125,19 @@ export default {
     loginNameNum: "请输入不超过15个字符的登录名!",
     chainId:"请输入连锁商户ID，只能包含数字",
     qdId:"请输入连锁商户ID，只能包含数字",
-    shopId:"请输入门店ID，多个id用英文逗号分隔"
+    shopId:"请输入门店ID，多个id用英文逗号分隔",
+    bandName:"请输入品牌名称，长度在 1 到 128 个字符",
+    companyName:"请输入公司名称，长度在 1 到 128 个字符",
+    SalesName:"请输入业务员登录账号，长度在 1 到 15 个字符",
+    merStyle:"请输入商户类型，长度在 2 到 128 个数字",
+    contact:"请输入联系人，长度在 1 到 128 个字符",
+    contactEmail:"请填写正确的联系人邮箱",
+    bank:"请输入收款银行，长度在 1 到 128 个字符",
+    branch:"请输入分行，长度在 1 到 128 个字符",
+    bankcode:"请输入开户账号，长度在 1 到 128 个字符",
+    bankNum:"请输入收款账号，长度在 1 到 128 个字符",
+    swift:"请输入联行号，长度在 1 到 128 个字符",
+    rule:"请输入清算规则，长度在 1 到 128 个字符"
   },
   login: {
     qdSystem: "渠道系统",
@@ -439,7 +451,23 @@ export default {
       mendTip4:"点击上传",
       addTip1:"下载模板",
       addTip2:"上传填完商户信息的文件",
-      addTip3:"每个文件最多传500条数据，且必须是.xls的格式"
+      addTip3:"每个文件最多传500条数据，且必须是.xls的格式",
+      company:"公司信息",
+      bank:"银行信息",
+      product:"产品信息",
+      brand:"品牌名称",
+      companyName:"公司名称",
+      merStyle:"商户类型",
+      salName:"业务员登录账号",
+      contactName:"联系人",
+      contactEmail:"联系人邮箱",
+      bankNameGet:"收款银行",
+      branchBank:"分行",
+      bankNameAccount:"开户账号",
+      bankCode:"收款账号",
+      bankNum:"银行号",
+      rules:"清算规则",
+      addSuce:"新增成功!"
     }
   },
   salesmanlList: {

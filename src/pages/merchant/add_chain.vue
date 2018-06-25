@@ -2,42 +2,43 @@
   <div>
     <!-- 图片上传，保存ajax -->
     <div class="right_head">
-      {{titleTop}}连锁商户
+      <!-- {{titleTop}}连锁商户 -->
+      {{$t('merchantlList.searchBank.addChain')}}
     </div>
     <div class="right_body">
       <el-form :model="base" :rules="rules" ref="base" label-width="125px" class="demo-ruleForm">
         <el-row>
           <div class="step_show">
             <el-col :xs="24" :sm="24" :md="24" :lg="24">
-                <p class="title">公司信息</p>
+                <p class="title">{{$t('merchantlList.bodyBank.company')}}</p>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="品牌名称" prop="brand_name">
+              <el-form-item :label="$t('merchantlList.bodyBank.brand')" prop="brand_name">
                 <el-input v-model="base.brand_name" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="公司名称" prop="company_name">
+              <el-form-item :label="$t('merchantlList.bodyBank.companyName')" prop="company_name">
                 <el-input v-model="base.company_name" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="业务员登录账号" prop="slsm_username">
+              <el-form-item :label="$t('merchantlList.bodyBank.salName')" prop="slsm_username">
                 <el-input v-model="base.slsm_username" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="商户类型" prop="mchnt_mcc">
+              <el-form-item :label="$t('merchantlList.bodyBank.merStyle')" prop="mchnt_mcc">
                 <el-input v-model="base.mchnt_mcc" placeholder="" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="联系人" prop="contact_name">
+              <el-form-item :label="$t('merchantlList.bodyBank.contactName')" prop="contact_name">
                 <el-input v-model="base.contact_name" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="联系人邮箱" prop="contact_email">
+              <el-form-item :label="$t('merchantlList.bodyBank.contactEmail')" prop="contact_email">
                 <el-input v-model="base.contact_email" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
@@ -45,35 +46,35 @@
               <div class="clearfix_liner1"></div>
             </el-col>
             <el-col :xs="24" :sm="24" :md="24" :lg="24">
-                <p class="title">银行信息</p>
+                <p class="title">{{$t('merchantlList.bodyBank.bank')}}</p>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="收款银行" prop="head_bankname">
+              <el-form-item :label="$t('merchantlList.bodyBank.bankNameGet')" prop="head_bankname">
                 <el-input v-model="base.head_bankname" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="分行" prop="branch_bankname">
+              <el-form-item :label="$t('merchantlList.bodyBank.branchBank')" prop="branch_bankname">
                 <el-input v-model="base.branch_bankname" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="开户账号" prop="bankuser">
+              <el-form-item :label="$t('merchantlList.bodyBank.bankNameAccount')" prop="bankuser">
                 <el-input v-model="base.bankuser" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="收款账号" prop="bankaccount">
+              <el-form-item :label="$t('merchantlList.bodyBank.bankCode')" prop="bankaccount">
                 <el-input v-model="base.bankaccount" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="银行号" prop="bankcode">
+              <el-form-item :label="$t('merchantlList.bodyBank.bankNum')" prop="bankcode">
                 <el-input v-model="base.bankcode" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="清算规则" prop="clear_rule">
+              <el-form-item :label="$t('merchantlList.bodyBank.rules')" prop="clear_rule">
                 <el-input v-model="base.clear_rule" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
@@ -81,15 +82,15 @@
                 <div class="clearfix_liner1"></div>
             </el-col>
             <el-col :xs="24" :sm="24" :md="24" :lg="24">
-                <p class="title">产品信息</p>
+                <p class="title">{{$t('merchantlList.bodyBank.product')}}</p>
             </el-col>
            <el-col :xs="24" :sm="24" :md="24" :lg="24">
               <el-table ref="multipleTable" :data="proListShow" border stripe style="width: 100%" @selection-change="handleSelectionChange">
                 <el-table-column type="selection" width="55">
                 </el-table-column>
-                <el-table-column prop="name" label="交易类型" resizable min-width="120px">
+                <el-table-column prop="name" :label="$t('generalPro.bodyBank.tradeStyle')" resizable min-width="120px">
                 </el-table-column>
-                <el-table-column label="费率" resizable min-width="100px">
+                <el-table-column :label="$t('merchantlList.bodyBank.feePercent')" resizable min-width="100px">
                     <template scope="scope">
                       <el-input v-model.number="scope.row.value" @blur="check_fee(scope.row.value,$event)">
                         <template slot="append">%</template>
@@ -104,8 +105,8 @@
           </div>
           <div class="m_t_20 t_c">
             <el-col :xs="24" :sm="24" :md="24" :lg="24">
-              <el-button type="primary" @click="mend('base')">确定</el-button>
-              <el-button @click="goback">返回</el-button>
+              <el-button type="primary" @click="mend('base')">{{$t('app.save')}}</el-button>
+              <el-button @click="goback">{{$t('app.return')}}</el-button>
             </el-col>
           </div>
         </el-row>
@@ -151,7 +152,7 @@ export default {
             required: true,
             min: 1,
             max: 128,
-            message: "请输入品牌名称，长度在 1 到 128 个字符",
+            message: this.$t('yanzheng.bandName'),
             trigger: "blur"
           }
         ],
@@ -160,7 +161,7 @@ export default {
             required: true,
             min: 1,
             max: 128,
-            message: "请输入公司名称，长度在 1 到 128 个字符",
+            message: this.$t('yanzheng.companyName'),
             trigger: "blur"
           }
         ],
@@ -168,7 +169,7 @@ export default {
           {
             required: true,
             pattern: /^[0-9a-zA-Z]{1,15}$/,
-            message: "请输入业务员登录账号，长度在 1 到 15 个字符",
+            message: this.$t('yanzheng.SalesName'),
             trigger: "blur"
           }
         ],
@@ -176,7 +177,7 @@ export default {
           {
             required: false,
             pattern: /^[0-9\s]{2,128}$/,
-            message: "请输入商户类型，长度在 2 到 128 个数字",
+            message: this.$t('yanzheng.merStyle'),
             trigger: "blur"
           }
         ],
@@ -185,7 +186,7 @@ export default {
             required: false,
             min: 1,
             max: 128,
-            message: "请输入联系人，长度在 1 到 128 个字符",
+            message: this.$t('yanzheng.contact'),
             trigger: "blur"
           }
         ],
@@ -193,7 +194,7 @@ export default {
           {
             type: "email",
             required: false,
-            message: "请填写正确的联系人邮箱",
+            message: this.$t('yanzheng.contactEmail'),
             trigger: "blur"
           }
         ],
@@ -202,7 +203,7 @@ export default {
             required: false,
             min: 1,
             max: 128,
-            message: "请输入收款银行，长度在 1 到 128 个字符",
+            message: this.$t('yanzheng.bank'),
             trigger: "blur"
           }
         ],
@@ -211,7 +212,7 @@ export default {
             required: false,
             min: 1,
             max: 128,
-            message: "请输入分行，长度在 1 到 128 个字符",
+            message: this.$t('yanzheng.branch'),
             trigger: "blur"
           }
         ],
@@ -220,7 +221,7 @@ export default {
             required: false,
             min: 1,
             max: 128,
-            message: "请输入开户账号，长度在 1 到 128 个字符",
+            message: this.$t('yanzheng.bankcode'),
             trigger: "blur"
           }
         ],
@@ -230,7 +231,7 @@ export default {
             pattern: /^[0-9a-zA-Z\s]+$/,
             min: 1,
             max: 128,
-            message: "请输入收款账号，长度在 1 到 128 个字符",
+            message: this.$t('yanzheng.bankNum'),
             trigger: "blur"
           }
         ],
@@ -240,7 +241,7 @@ export default {
             pattern: /^[0-9a-zA-Z\s]+$/,
             min: 1,
             max: 128,
-            message: "请输入联行号，长度在 1 到 128 个字符",
+            message:this.$t('yanzheng.swift'),
             trigger: "blur"
           }
         ],
@@ -250,7 +251,7 @@ export default {
             pattern: /^[0-9\s]+$/,
             min: 1,
             max: 128,
-            message: "请输入清算规则，长度在 1 到 128 个字符",
+            message: this.$t('yanzheng.rule'),
             trigger: "blur"
           }
         ]
@@ -280,7 +281,7 @@ export default {
       this.pageStyle = this.$route.query.style;
       this.pageId = this.$route.query.id;
       if (!this.pageStyle) {
-        this.titleTop = "新建";
+        // this.titleTop = "新建";
         this.firstVal(); //赋值
         return false;
       }
@@ -353,40 +354,13 @@ export default {
       if (this.proSelId.length > 0) {
         post_data.products = this.getIds();
       }
-      this.$http
-        .post(this.add_url, post_data, {
-          before: function() {
-            _this.loading = true;
-          }
-        })
-        .then(
-          function(response) {
-            _this.loading = false;
-            let data_return = response.body;
-            if (data_return.respcd == "0000") {
-              _this.visible_toast = true;
-              _this.toastmsg = "新增成功!";
-              _this.$router.push({
-                name: "merchant_chain"
-              });
-            } else {
-              if (data_return.respmsg) {
-                _this.toastmsg = data_return.respmsg;
-              } else {
-                _this.toastmsg = data_return.resperr;
-              }
-              _this.visible_toast = true;
-            }
-          },
-          function(response) {
-            _this.loading = false;
-            _this.visible_toast = true;
-            _this.toastmsg = "网络超时!";
-          }
-        )
-        .catch(function(response) {
-          _this.loading = false;
+      this.$ajax_log.ajax_post(this, this.add_url, post_data, data_return => {
+        _this.visible_toast = true;
+        _this.toastmsg = this.$t('merchantlList.bodyBank.addSuce');
+        _this.$router.push({
+          name: "merchant_chain"
         });
+      });
     },
     //获取产品列表
     getpro_list: function() {
@@ -394,38 +368,10 @@ export default {
       let post_data = {
         prod_cate: 1
       };
-      this.$http
-        .get(this.pro_url, {
-          params: post_data,
-          before: function() {
-            _this.loading = true;
-          }
-        })
-        .then(
-          function(response) {
-            _this.loading = false;
-            let data_return = response.body;
-            if (data_return.respcd == "0000") {
-              _this.proList = data_return.data;
-              _this.getproShow(data_return.data);
-            } else {
-              if (data_return.respmsg) {
-                _this.toastmsg = data_return.respmsg;
-              } else {
-                _this.toastmsg = data_return.resperr;
-              }
-              _this.visible_toast = true;
-            }
-          },
-          function(response) {
-            _this.loading = false;
-            _this.visible_toast = true;
-            _this.toastmsg = "网络超时!";
-          }
-        )
-        .catch(function(response) {
-          _this.loading = false;
-        });
+      this.$ajax_log.ajax_get(this, this.pro_url, post_data, data_return => {
+        _this.proList = data_return.data;
+        _this.getproShow(data_return.data);
+      });
     },
     //重组列表
     getproShow(data) {
