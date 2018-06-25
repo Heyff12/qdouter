@@ -371,3 +371,19 @@ var mendUp = {
     }
 };
 Mock.mock(/qudao\/v1\/api\/chain\/upload_modify_file/, "post", mendUp);
+
+//产品列表
+var proLIst = {
+    respcd: "0000",
+    respmsg: "OK",
+    resperr: "",
+    "data|3-5": [{
+      "userid|+1": 123, // 渠道编号
+      "product_id|+1": 123, // 产品编号
+      "name|1": ["微信费率","支付宝费率","京东费率","QQ费率"], // 产品名称.外部渠道支持多语言
+      "cate": 1, // 产品类别
+      "intro": "简介", // 产品简介
+      "status": 0, // 开通状态: 0 已开通, 1 未开通
+    }]
+  };
+  Mock.mock(/qudao\/v1\/api\/tools\/product_info/, "get", proLIst);

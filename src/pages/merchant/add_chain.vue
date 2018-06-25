@@ -12,28 +12,38 @@
                 <p class="title">公司信息</p>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="品牌名称" prop="brandname">
-                <el-input v-model="base.brandname" :disabled="pageStyle=='scan'"></el-input>
+              <el-form-item label="品牌名称" prop="brand_name">
+                <el-input v-model="base.brand_name" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="公司名称" prop="company">
-                <el-input v-model="base.company" :disabled="pageStyle=='scan'"></el-input>
+              <el-form-item label="公司名称" prop="company_name">
+                <el-input v-model="base.company_name" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="商户类型" prop="type">
-                <el-input v-model="base.type" placeholder="" :disabled="pageStyle=='scan'"></el-input>
+              <el-form-item label="渠道ID" prop="qd_uid">
+                <el-input v-model="base.qd_uid" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="联系人" prop="name">
-                <el-input v-model="base.name" :disabled="pageStyle=='scan'"></el-input>
+              <el-form-item label="业务员登录账号" prop="slsm_username">
+                <el-input v-model="base.slsm_username" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="联系人邮箱" prop="email">
-                <el-input v-model="base.email" :disabled="pageStyle=='scan'"></el-input>
+              <el-form-item label="商户类型" prop="mchnt_mcc">
+                <el-input v-model="base.mchnt_mcc" placeholder="" :disabled="pageStyle=='scan'"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :xs="24" :sm="24" :md="12" :lg="8">
+              <el-form-item label="联系人" prop="contact_name">
+                <el-input v-model="base.contact_name" :disabled="pageStyle=='scan'"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :xs="24" :sm="24" :md="12" :lg="8">
+              <el-form-item label="联系人邮箱" prop="contact_email">
+                <el-input v-model="base.contact_email" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="24" :lg="24">
@@ -43,33 +53,33 @@
                 <p class="title">银行信息</p>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="收款银行" prop="bank">
-                <el-input v-model="base.bank" :disabled="pageStyle=='scan'"></el-input>
+              <el-form-item label="收款银行" prop="head_bankname">
+                <el-input v-model="base.head_bankname" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="分行" prop="branchbank">
-                <el-input v-model="base.branchbank" :disabled="pageStyle=='scan'"></el-input>
+              <el-form-item label="分行" prop="branch_bankname">
+                <el-input v-model="base.branch_bankname" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="开户账号" prop="account">
-                <el-input v-model="base.account" :disabled="pageStyle=='scan'"></el-input>
+              <el-form-item label="开户账号" prop="bankuser">
+                <el-input v-model="base.bankuser" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="收款账号" prop="accountNum">
-                <el-input v-model="base.accountNum" :disabled="pageStyle=='scan'"></el-input>
+              <el-form-item label="收款账号" prop="bankaccount">
+                <el-input v-model="base.bankaccount" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="银行号" prop="swiftcode">
-                <el-input v-model="base.swiftcode" :disabled="pageStyle=='scan'"></el-input>
+              <el-form-item label="银行号" prop="bankcode">
+                <el-input v-model="base.bankcode" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item label="清算规则" prop="rule">
-                <el-input v-model="base.rule" :disabled="pageStyle=='scan'"></el-input>
+              <el-form-item label="清算规则" prop="clear_rule">
+                <el-input v-model="base.clear_rule" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="24" :lg="24">
@@ -79,12 +89,17 @@
                 <p class="title">产品信息</p>
             </el-col>
            <el-col :xs="24" :sm="24" :md="24" :lg="24">
-              <el-table ref="multipleTable" :data="products" border stripe style="width: 100%" @selection-change="handleSelectionChange">
+              <el-table ref="multipleTable" :data="proListShow" border stripe style="width: 100%" @selection-change="handleSelectionChange">
                 <el-table-column type="selection" width="55">
                 </el-table-column>
-                <el-table-column prop="product_id" label="交易类型" resizable min-width="120px">
+                <el-table-column prop="name" label="交易类型" resizable min-width="120px">
                 </el-table-column>
-                <el-table-column prop="name" label="费率" resizable min-width="100px">
+                <el-table-column label="费率" resizable min-width="100px">
+                    <template scope="scope">
+                      <el-input v-model.number="scope.row.value" @blur="check_fee(scope.row.value,$event)">
+                        <template slot="append">%</template>
+                      </el-input>
+                    </template>
                 </el-table-column>
               </el-table>
             </el-col>
@@ -107,11 +122,14 @@
 </template>
 <script>
 import yanzheng from "../../method/yanzheng";
+import { searchPost, mendPost } from "../../method/util";
 export default {
   name: "add_chain",
   data() {
     return {
-      products: [], //ajax获取
+      proList: [], //获取的差评列表//ajax获取
+      proListShow: [], //展示的数据列表
+      proSelId: [], //选择产品id
       pageStyle: "", //页面类型
       pageId: "", //id
       titleTop: "", //id
@@ -119,20 +137,22 @@ export default {
       toastmsg: "", //提示文字
       visible_toast: false, //toast是否显示
       base: {
-        brandname: "", 
-        company: "", 
-        name: "", 
-        email: "", 
-        type: "", 
-        bank: "", 
-        branchbank: "", 
-        accountNum: "", 
-        account: "", 
-        swiftcode: "",
-        rule: "", 
+        brand_name: "",
+        company_name: "",
+        qd_uid: "",
+        contact_name: "",
+        contact_email: "",
+        mchnt_mcc: "",
+        head_bankname: "",
+        branch_bankname: "",
+        bankaccount: "",
+        bankuser: "",
+        bankcode: "",
+        clear_rule: "",
+        products: []
       },
       rules: {
-        brandname: [
+        brand_name: [
           {
             required: true,
             min: 1,
@@ -141,7 +161,7 @@ export default {
             trigger: "blur"
           }
         ],
-        company: [
+        company_name: [
           {
             required: true,
             min: 1,
@@ -150,16 +170,31 @@ export default {
             trigger: "blur"
           }
         ],
-        type: [
+        qd_uid: [
           {
-            required: false,
-            min: 2,
-            max: 128,
-            message: "请输入商户类型，长度在 2 到 128 个字符",
+            required: true,
+            pattern: /^[0-9\s]{0,300}$/,
+            message: "请输入渠道ID，只能包含数字",
             trigger: "blur"
           }
         ],
-        name: [
+        slsm_username: [
+          {
+            required: true,
+            pattern: /^[0-9a-zA-Z]{1,15}$/,
+            message: "请输入业务员登录账号，长度在 1 到 15 个字符",
+            trigger: "blur"
+          }
+        ],
+        mchnt_mcc: [
+          {
+            required: false,
+            pattern: /^[0-9\s]{2,128}$/,
+            message: "请输入商户类型，长度在 2 到 128 个数字",
+            trigger: "blur"
+          }
+        ],
+        contact_name: [
           {
             required: false,
             min: 1,
@@ -168,7 +203,7 @@ export default {
             trigger: "blur"
           }
         ],
-        email: [
+        contact_email: [
           {
             type: "email",
             required: false,
@@ -176,7 +211,7 @@ export default {
             trigger: "blur"
           }
         ],
-        bank: [
+        head_bankname: [
           {
             required: false,
             min: 1,
@@ -185,7 +220,7 @@ export default {
             trigger: "blur"
           }
         ],
-        branchbank: [
+        branch_bankname: [
           {
             required: false,
             min: 1,
@@ -194,7 +229,7 @@ export default {
             trigger: "blur"
           }
         ],
-        account: [
+        bankuser: [
           {
             required: false,
             min: 1,
@@ -203,7 +238,7 @@ export default {
             trigger: "blur"
           }
         ],
-        accountNum: [
+        bankaccount: [
           {
             required: false,
             pattern: /^[0-9a-zA-Z\s]+$/,
@@ -213,36 +248,38 @@ export default {
             trigger: "blur"
           }
         ],
-        accountNum: [
+        bankcode: [
           {
             required: false,
             pattern: /^[0-9a-zA-Z\s]+$/,
             min: 1,
             max: 128,
-            message: "请输入收款账号，长度在 1 到 128 个字符",
+            message: "请输入联行号，长度在 1 到 128 个字符",
             trigger: "blur"
           }
         ],
-        mobile: [
+        clear_rule: [
           {
-            required: true,
-            pattern: /^1[0-9]{10}$/,
-            message: "请填写正确的手机号",
+            required: false,
+            pattern: /^[0-9\s]+$/,
+            min: 1,
+            max: 128,
+            message: "请输入清算规则，长度在 1 到 128 个字符",
             trigger: "blur"
           }
-        ],
+        ]
       },
-      userid: "", 
-      userid_url: "/qudao_mis/v1/api/qd/precreate", //获取userid 渠道预注册
+      add_url: "/qudao/v1/api/chain/create",
+      pro_url: "/qudao/v1/api/tools/product_info",
+      fixInfo: {}
     };
   },
   created: function() {
     this.fetchPath();
+    this.getpro_list();
   },
-  computed: {
-  },
-  watch: {
-  },
+  computed: {},
+  watch: {},
   methods: {
     //监听toast是否可见的值得变化
     onVisibleChange(val) {
@@ -258,54 +295,51 @@ export default {
       this.pageId = this.$route.query.id;
       if (!this.pageStyle) {
         this.titleTop = "新建";
-        this.firstVal();//赋值
+        this.firstVal(); //赋值
         return false;
       }
-      this.GetInfo(this.pageId);
-      if (this.pageStyle == "scan") {
-        this.titleTop = "查看";
-      }
+      // this.GetInfo(this.pageId);
+      // if (this.pageStyle == "scan") {
+      //   this.titleTop = "查看";
+      // }
     },
     GetInfo(id) {
-    //   this.$ajax_axios.ajax_get(this, this.common_url + id, "", data_return => {
-    //     this.addPush = data_return.data;
-    //     this.addPush.ispush = data_return.data.ispush.toString();
-    //     this.addPush.send_type = data_return.data.send_type.toString();
-    //     this.addPush.spectype = data_return.data.spectype.toString();
-    //     if(data_return.data.spectype == 2){
-    //       this.addPush.userids_form = data_return.data.userids;
-    //       this.form_num = this.addPush.userids_form.split(',').length;
-    //     }else if(data_return.data.spectype == 3){
-    //       this.addPush.userids_input = data_return.data.userids;
-    //       this.input_num = this.addPush.userids_input.split(',').length;
-    //     }
-    //     if(data_return.data.send_time){
-    //       this.addPush.send_time = new Date(data_return.data.send_time);
-    //     }
-    //     this.firstVal();//赋值
-    //   });
+      // this.$ajax_axios.ajax_get(this, this.common_url + id, "", data_return => {
+      //   this.addPush = data_return.data;
+      //   this.firstVal();//赋值
+      // });
     },
     //第一次取固定值
-    firstVal(){
-    //   for(let key in this.addPush){
-    //     this.fixInfo[key] = this.addPush[key];
-    //   }
+    firstVal() {
+      for (let key in this.base) {
+        this.fixInfo[key] = this.base[key];
+      }
     },
     goback: function() {
       this.$router.go(-1);
     },
     //产品选择监听事件
     handleSelectionChange(val) {
-      let _this = this;
       let select_val = val;
-      _this.product = [];
+      this.proSelId = [];
       for (let i = 0; i < select_val.length; i++) {
         let id = select_val[i].product_id;
-        _this.product.push(id);
+        // let value = select_val[i].value;
+        // this.base.products.push({ [id]: value });
+        this.proSelId.push(id);
       }
+      // console.log(this.base.products);
+      // console.log(this.proListShow);
     },
     mend(formName) {
       var _this = this;
+      let errNum = document.getElementsByClassName('errBorder').length;
+      if(errNum>0){
+        this.$message({
+          message: "费率填写错误",
+          type: "error"
+        });
+      }
       this.$refs[formName].validate(valid => {
         if (valid) {
           //提交修改ajax--todo
@@ -313,86 +347,28 @@ export default {
         }
       });
     },
-    //获取特定渠道的基本信息
-    get_info: function() {
-      var _this = this;
-      this.$http
-        .get(this.qd_info_url, {
-          before: function() {
-            _this.loading = true;
-          }
-        })
-        .then(
-          function(response) {
-            _this.loading = false;
-            var data_return = response.body;
-            if (data_return.respcd == "0000") {
-              var areas = data_return.data.auth_areas;
-              areas.forEach((item, index) => {
-                _this.if_remove_operation = true;
-                //console.log(item);
-                _this.get_citylist(item.auth_province, item.auth_city, index);
-              });
-
-              setTimeout(() => {
-                _this.base = data_return.data;
-                _this.city_mid = data_return.data.city;
-                //如果url为空，给图片赋默认值
-                if (_this.base.logo_url.length <= 0) {
-                  _this.base.logo_url = "/qudao/v1/static/login/img/ic_img.png";
-                }
-                if (_this.base.icon_url.length <= 0) {
-                  _this.base.icon_url = "/qudao/v1/static/login/img/ic_img.png";
-                }
-                if (_this.base.business_license_url.length <= 0) {
-                  _this.base.business_license_url =
-                    "/qudao/v1/static/login/img/ic_img.png";
-                }
-                if (_this.base.bank_account_url.length <= 0) {
-                  _this.base.bank_account_url =
-                    "/qudao/v1/static/login/img/ic_img.png";
-                }
-                _this.userid = _this.base.qd_uid; //上传图片时需要
-              }, 1000);
-            } else {
-              if (data_return.respmsg) {
-                _this.toastmsg = data_return.respmsg;
-              } else {
-                _this.toastmsg = data_return.resperr;
-              }
-              _this.visible_toast = true;
-            }
-          },
-          function(response) {
-            _this.loading = false;
-            _this.visible_toast = true;
-            _this.toastmsg = "网络超时!";
-          }
-        )
-        .catch(function(response) {
-          _this.loading = false;
-        });
-      //测试数据
-      //this.test_info();
-    },
     //修改特定渠道的基本信息
     fix_info: function() {
       let _this = this;
-      let post_data = _this.base;
-      //如果没有上传一下两个图片，设置值为空
-      if (
-        _this.base.business_license_url ==
-        "/qudao/v1/static/login/img/ic_img.png"
-      ) {
-        _this.base.business_license_url = "";
-      }
-      if (
-        _this.base.bank_account_url == "/qudao/v1/static/login/img/ic_img.png"
-      ) {
-        _this.base.bank_account_url = "";
+      let post_data = {
+        brand_name: this.base.brand_name,
+        company_name: this.base.company_name,
+        qd_uid: this.base.qd_uid
+      };
+      searchPost(this.base.contact_name, "contact_name", post_data);
+      searchPost(this.base.contact_email, "contact_email", post_data);
+      searchPost(this.base.mchnt_mcc, "mchnt_mcc", post_data);
+      searchPost(this.base.head_bankname, "head_bankname", post_data);
+      searchPost(this.base.branch_bankname, "branch_bankname", post_data);
+      searchPost(this.base.bankaccount, "bankaccount", post_data);
+      searchPost(this.base.bankuser, "bankuser", post_data);
+      searchPost(this.base.bankcode, "bankcode", post_data);
+      searchPost(this.base.clear_rule, "clear_rule", post_data);
+      if (this.proSelId.length > 0) {
+        post_data.products = this.getIds();
       }
       this.$http
-        .post(this.qd_info_url, post_data, {
+        .post(this.add_url, post_data, {
           before: function() {
             _this.loading = true;
           }
@@ -403,7 +379,10 @@ export default {
             let data_return = response.body;
             if (data_return.respcd == "0000") {
               _this.visible_toast = true;
-              _this.toastmsg = "修改成功!";
+              _this.toastmsg = "新增成功!";
+              _this.$router.push({
+                name: "merchant_chain"
+              });
             } else {
               if (data_return.respmsg) {
                 _this.toastmsg = data_return.respmsg;
@@ -412,44 +391,103 @@ export default {
               }
               _this.visible_toast = true;
             }
-            if (_this.base.business_license_url.length <= 0) {
-              _this.base.business_license_url =
-                "/qudao/v1/static/login/img/ic_img.png";
-            }
-            if (_this.base.bank_account_url.length <= 0) {
-              _this.base.bank_account_url =
-                "/qudao/v1/static/login/img/ic_img.png";
+          },
+          function(response) {
+            _this.loading = false;
+            _this.visible_toast = true;
+            _this.toastmsg = "网络超时!";
+          }
+        )
+        .catch(function(response) {
+          _this.loading = false;
+        });
+    },
+    //获取产品列表
+    getpro_list: function() {
+      let _this = this;
+      let post_data = {
+        prod_cate: 1
+      };
+      this.$http
+        .get(this.pro_url, {
+          params: post_data,
+          before: function() {
+            _this.loading = true;
+          }
+        })
+        .then(
+          function(response) {
+            _this.loading = false;
+            let data_return = response.body;
+            if (data_return.respcd == "0000") {
+              _this.proList = data_return.data;
+              _this.getproShow(data_return.data);
+            } else {
+              if (data_return.respmsg) {
+                _this.toastmsg = data_return.respmsg;
+              } else {
+                _this.toastmsg = data_return.resperr;
+              }
+              _this.visible_toast = true;
             }
           },
           function(response) {
             _this.loading = false;
             _this.visible_toast = true;
             _this.toastmsg = "网络超时!";
-            if (_this.base.business_license_url.length <= 0) {
-              _this.base.business_license_url =
-                "/qudao/v1/static/login/img/ic_img.png";
-            }
-            if (_this.base.bank_account_url.length <= 0) {
-              _this.base.bank_account_url =
-                "/qudao/v1/static/login/img/ic_img.png";
-            }
           }
         )
         .catch(function(response) {
           _this.loading = false;
-          if (_this.base.business_license_url.length <= 0) {
-            _this.base.business_license_url =
-              "/qudao/v1/static/login/img/ic_img.png";
-          }
-          if (_this.base.bank_account_url.length <= 0) {
-            _this.base.bank_account_url =
-              "/qudao/v1/static/login/img/ic_img.png";
-          }
         });
     },
+    //重组列表
+    getproShow(data) {
+      data.forEach(item => {
+        this.proListShow.push({
+          product_id: item.product_id,
+          name: item.name,
+          value: ""
+        });
+      });
+    },
+    //重组提交数据
+    getIds() {
+      this.base.products = [];
+      this.proSelId.forEach(item => {
+        for (let i = 0; i < this.proListShow.length; i++) {
+          if (this.proListShow[i].product_id == item) {
+            this.base.products.push({ [item]: this.proListShow[i].value });
+            return false;
+          }
+        }
+      });
+      return this.base.products;
+    },
+    //检查费率
+    check_fee(val, e) {
+      // console.log(val);
+      // console.log(e.target.className);
+      let reg = /^[0-9]{0,2}(\.{1}\d{1,2}){0,1}$/;
+      if (!reg.test(val)) {
+        this.$message({
+          message: "费率填写错误",
+          type: "error"
+        });
+        e.target.className = "el-input__inner errBorder"
+      } else {
+        e.target.className = "el-input__inner"
+      }
+    }
   }
 };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" rel="stylesheet/less">
+.el-input-group--append .el-input__inner{
+  &.errBorder{
+    color:red;
+    border-color:red;
+  }
+}
 </style>
