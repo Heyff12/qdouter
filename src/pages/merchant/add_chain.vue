@@ -176,7 +176,7 @@ export default {
         mchnt_mcc: [
           {
             required: false,
-            pattern: /^[0-9\s]{2,128}$/,
+            pattern: /^[0-9\s]{2,4}$/,
             message: this.$t('yanzheng.merStyle'),
             trigger: "blur"
           }
