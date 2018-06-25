@@ -363,7 +363,7 @@ Mock.mock(/qudao\/v1\/api\/chain\/upload_create_file/, "post", addUp);
 //修改上传
 var mendUp = {
     respcd: "0000",
-    respmsg: "OK",
+    respmsg: "上传失败",
     resperr: "",
     data: {
         "total_cnt|1": [200,300,100,45,68,90], // 商户数

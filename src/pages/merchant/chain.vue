@@ -1,95 +1,95 @@
 <template>
   <div class="mechant">
     <div class="right_head">
-      连锁商户管理
+      {{$t('menus.merChainManage')}}
     </div>
     <div class="right_body">
       <el-form label-width="130px" class="demo-ruleForm" :model="searchkey" :rules="searchkey_rule" ref="searchkey">
         <el-row :gutter="10">
           <el-col :xs="24" :sm="24" :md="12" :lg="6">
-            <el-form-item label="连锁商户ID：" prop="mchnt_uid">
+            <el-form-item :label="$t('merchantlList.searchBank.chanId')+'：'" prop="mchnt_uid">
               <el-input v-model.trim="searchkey.mchnt_uid"></el-input>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="12" :lg="6">
-            <el-form-item label="渠道ID：" prop="qd_uid">
+            <el-form-item :label="$t('merchantlList.searchBank.qdId')+'：'" prop="qd_uid">
               <el-input v-model.trim="searchkey.qd_uid"></el-input>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="12" :lg="6">
-            <el-form-item label="登录账号：" prop="username">
+            <el-form-item :label="$t('generalPro.bodyBank.loginName')+'：'" prop="username">
               <el-input v-model.trim="searchkey.username"></el-input>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="12" :lg="6">
-            <el-form-item label="商户名称：" prop="name">
+            <el-form-item :label="$t('generalPro.searchBank.merName')" prop="name">
               <el-input v-model.trim="searchkey.name"></el-input>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="24" :lg="24"></el-col>
           <el-col :xs="24" :sm="24" :md="12" :lg="6">
-            <el-form-item label="状态：">
-              <el-select v-model="searchkey.status" placeholder="请选择状态">
-                <el-option label="全部" value=""></el-option>
-                <el-option label="注销" value="1"></el-option>
-                <el-option label="正常" value="0"></el-option>
+            <el-form-item :label="$t('merchantlList.searchBank.status')+'：'">
+              <el-select v-model="searchkey.status" placeholder="">
+                <el-option :label="$t('app.all')" value=""></el-option>
+                <el-option :label="$t('merchantlList.searchBank.closed')" value="1"></el-option>
+                <el-option :label="$t('merchantlList.searchBank.opend')" value="0"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="12" :lg="6">
             <el-form-item label-width="0" class="t_c">
-              <el-button type="primary" @click="search_sub">查询</el-button>
-              <el-button type="success" @click="download_sub">下载</el-button>
-              <el-button type="default" @click="resetSearch('searchkey')">重置</el-button>
+              <el-button type="primary" @click="search_sub">{{$t('merchantlList.searchBank.search')}}</el-button>
+              <el-button type="success" @click="download_sub">{{$t('merchantlList.searchBank.download')}}</el-button>
+              <el-button type="default" @click="resetSearch('searchkey')">{{$t('merchantlList.searchBank.reset')}}</el-button>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="24" :lg="12">
             <el-form-item label-width="0" class="t_c">
-              <el-button type="primary" @click="go_add">新增连锁商户</el-button>
-              <el-button type="success" @click="addShop(0)">批量入门店</el-button>
-              <el-button type="warning" @click="mendShops">批量修改信息</el-button>
-              <!-- <el-button type="danger" @click="bindShop">门店关联/解绑</el-button> -->
+              <el-button type="primary" @click="go_add">{{$t('merchantlList.searchBank.addChain')}}</el-button>
+              <el-button type="success" @click="addShop(0)">{{$t('merchantlList.searchBank.addShops')}}</el-button>
+              <el-button type="warning" @click="mendShops">{{$t('merchantlList.searchBank.mendShops')}}</el-button>
+              <!-- <el-button type="danger" @click="bindShop">{{$t('merchantlList.searchBank.bindShops')}}</el-button> -->
             </el-form-item>
           </el-col>
         </el-row>
       </el-form>
       <template>
         <el-table :data="merchants_now" border stripe style="width: 100%">
-          <el-table-column prop="mchnt_uid" label="连锁商户ID" resizable min-width="130px">
+          <el-table-column prop="mchnt_uid" :label="$t('merchantlList.searchBank.chanId')" resizable min-width="130px">
           </el-table-column>
-          <el-table-column prop="name" label="商户名称" resizable min-width="120px">
+          <el-table-column prop="name" :label="$t('generalPro.bodyBank.merName')" resizable min-width="120px">
           </el-table-column>
-          <el-table-column prop="username" label="登录账号" resizable min-width="100px">
+          <el-table-column prop="username" :label="$t('generalPro.bodyBank.loginName')" resizable min-width="100px">
           </el-table-column>
-          <el-table-column label="费率" resizable min-width="100px">
+          <el-table-column :label="$t('merchantlList.bodyBank.feePercent')" resizable min-width="100px">
             <template scope="scope">
               <div v-if="scope.row.fee_ratios || scope.row.settle_cycle">
                 <el-popover trigger="click" placement="bottom-end" popper-class="popover_new">
-                  <p class="title">费率明细</p>
+                  <p class="title">{{$t('merchantlList.bodyBank.feeD')}}</p>
                   <ul>
                     <template v-if="scope.row.fee_ratios">
-                      <li>微信费率：<span class="orange">{{middle_fee.wechat_fee | percent_f }}</span></li>
-                      <li>支付宝费率：<span class="orange">{{middle_fee.alipay_fee | percent_f }}</span></li>
-                      <li>京东费率：<span class="orange">{{middle_fee.jd_fee | percent_f }}</span></li>
-                      <li>QQ钱包费率：<span class="orange">{{middle_fee.qqwallet_fee | percent_f }}</span></li>
-                      <li>刷卡费率：<span class="orange">{{middle_fee.swipecard_fee | percent_f }}</span></li>
+                      <li>{{$t('merchantlList.bodyBank.feeWeixin')}}：<span class="orange">{{middle_fee.wechat_fee | percent_f }}</span></li>
+                      <li>{{$t('merchantlList.bodyBank.feeBao')}}：<span class="orange">{{middle_fee.alipay_fee | percent_f }}</span></li>
+                      <li>{{$t('merchantlList.bodyBank.feeJd')}}：<span class="orange">{{middle_fee.jd_fee | percent_f }}</span></li>
+                      <li>{{$t('merchantlList.bodyBank.feeQQ')}}：<span class="orange">{{middle_fee.qqwallet_fee | percent_f }}</span></li>
+                      <li>{{$t('merchantlList.bodyBank.feeCard')}}：<span class="orange">{{middle_fee.swipecard_fee | percent_f }}</span></li>
                     </template>
                     <template v-if="scope.row.settle_cycle">
-                      <li>结算周期：<span class="orange">{{scope.row.settle_cycle}}</span></li>
+                      <li>{{$t('merchantlList.bodyBank.settleCycle')}}：<span class="orange">{{scope.row.settle_cycle}}</span></li>
                     </template>
                   </ul>
-                  <span slot="reference" class="hover_color" @click="scan_fee(scope.row)">查看</span>
+                  <span slot="reference" class="hover_color" @click="scan_fee(scope.row)">{{$t('merchantlList.bodyBank.view')}}</span>
                 </el-popover>
               </div>
             </template>
           </el-table-column>
-          <el-table-column prop="join_dtm" label="注册时间" resizable min-width="170px">
+          <el-table-column prop="join_dtm" :label="$t('generalPro.bodyBank.regTime')" resizable min-width="170px">
           </el-table-column>
-          <el-table-column label="操作" resizable min-width="200px">
+          <el-table-column :label="$t('app.operate')" resizable min-width="200px">
             <template scope="scope">
-              <el-button type="text" @click="addShop(scope.row.mchnt_uid)">加分店</el-button>
-              <el-button type="text" @click="scan_son(scope.row.mchnt_uid)">分店列表</el-button>
-              <!-- <el-button type="text" @click="scan_merchant(scope.row.mchnt_uid)">详情</el-button> -->
+              <el-button type="text" @click="addShop(scope.row.mchnt_uid)">{{$t('merchantlList.bodyBank.addshop')}}</el-button>
+              <el-button type="text" @click="scan_son(scope.row.mchnt_uid)">{{$t('merchantlList.bodyBank.shopList')}}</el-button>
+              <!-- <el-button type="text" @click="scan_merchant(scope.row.mchnt_uid)">{{$t('merchantlList.bodyBank.detail')}}</el-button> -->
             </template>
           </el-table-column>
         </el-table>
@@ -104,13 +104,26 @@
     <bounced :visible="addShopModal" :newclass="big_bounced">
       <span slot="header">{{addTitle}}<i class="iClose el-icon-close"  @click="addShopModal=false"></i></span>
       <el-form ref="addShopModal" label-width="100px" class="demo-ruleForm" label-position="left">
-        <el-form-item label="下载模板:">
-          <el-button type="text" @click="download">点击下载</el-button>
-        </el-form-item>
-        <el-form-item label="上传文件:">
+        <template v-if="$store.state.language=='zh'">
+          <el-form-item label="下载模板:">
+            <el-button type="text" @click="download">点击下载</el-button>
+          </el-form-item>  
+        </template> 
+        <template v-if="$store.state.language=='en'">
+          <el-form-item label="" label-width="0">
+            1、<el-button type="text" @click="downMend">{{$t('merchantlList.bodyBank.addTip1')}}</el-button>
+          </el-form-item>      
+          <el-form-item label="" label-width="0">
+            2、{{$t('merchantlList.bodyBank.addTip2')}}
+          </el-form-item>      
+          <el-form-item label="" label-width="0">
+            3、{{$t('merchantlList.bodyBank.addTip3')}}
+          </el-form-item> 
+        </template>        
+        <el-form-item :label="$t('merchantlList.bodyBank.mendTip4')+'：'">
           <form class="uploadFormButton" id="uploadFormButton" enctype="multipart/form-data">
             <div class="ipload">
-              <p>点击上传</p>
+              <p>{{$t('merchantlList.bodyBank.mendTip4')}}</p>
               <input type="file" name="upload" size="32" 
               accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" 
               class="file file_style" value="" v-on:change="uploadFile($event)" />
@@ -118,30 +131,35 @@
           </form>
         </el-form-item>
         <el-form-item label="" label-width="0">
-          <span v-show="addUpData.total_cnt>0">检测到{{addUpData.total_cnt}}条数据</span> 
+          <template v-if="$store.state.language=='zh'">  
+            <span v-show="addUpData.total_cnt>0">检测到{{addUpData.total_cnt}}条数据</span>
+          </template> 
+          <template v-else-if="$store.state.language=='en'">  
+            <span v-show="addUpData.total_cnt>0">{{addUpData.total_cnt}} data detected</span>
+          </template>  
         </el-form-item>
         <el-form-item label="">
-          <span class="bounced_button bounced_sure" v-if="addUpData.total_cnt==0">确认</span>
-          <span class="bounced_button bounced_sure bounced_sure_right" @click="addSure" v-else>确认</span>
+          <span class="bounced_button bounced_sure" v-if="addUpData.total_cnt==0">{{$t('app.save')}}</span>
+          <span class="bounced_button bounced_sure bounced_sure_right" @click="addSure" v-else>{{$t('app.save')}}</span>
         </el-form-item>
       </el-form>
     </bounced>
     <bounced :visible="mendShopModal" :newclass="big_bounced">
-      <span slot="header">批量修改信息<i class="iClose el-icon-close"  @click="mendShopModal=false"></i></span>
+      <span slot="header">{{$t('merchantlList.searchBank.mendShops')}}<i class="iClose el-icon-close"  @click="mendShopModal=false"></i></span>
       <el-form ref="mendShopModal" label-width="100px" class="demo-ruleForm" label-position="left">        
         <el-form-item label="" label-width="0">
-          1、<el-button type="text" @click="downMend">下载修改信息的模板</el-button>
+          1、<el-button type="text" @click="downMend">{{$t('merchantlList.bodyBank.mendTip1')}}</el-button>
         </el-form-item>      
         <el-form-item label="" label-width="0">
-          2、上传修改后的文件，仅填写需要修改的部分
+          2、{{$t('merchantlList.bodyBank.mendTip2')}}
         </el-form-item>      
         <el-form-item label="" label-width="0">
-          3、每次最多上传500条
+          3、{{$t('merchantlList.bodyBank.mendTip3')}}
         </el-form-item>
-        <el-form-item label="上传文件:">
+        <el-form-item :label="$t('merchantlList.bodyBank.mendTip4')+'：'">
           <form class="uploadFormButton" id="uploadFormButton1" enctype="multipart/form-data">
             <div class="ipload">
-              <p>点击上传</p>
+              <p>{{$t('merchantlList.bodyBank.mendTip4')}}</p>
               <input type="file" name="mend" size="32" 
               accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" 
               class="file file_style" value="" v-on:change="uploadFile1($event)" />
@@ -149,29 +167,34 @@
           </form>
         </el-form-item>
         <el-form-item label="" label-width="0">
-          <span v-show="mendData.total_cnt>0">检测到{{mendData.total_cnt}}条数据</span>     
+          <template v-if="$store.state.language=='zh'">  
+            <span v-show="mendData.total_cnt>0">检测到{{mendData.total_cnt}}条数据</span>
+          </template> 
+          <template v-else-if="$store.state.language=='en'">  
+            <span v-show="mendData.total_cnt>0">{{mendData.total_cnt}} data detected</span>
+          </template>  
         </el-form-item>
         <el-form-item label="">
-          <span class="bounced_button bounced_sure" v-if="mendData.total_cnt==0">确认</span>
-          <span class="bounced_button bounced_sure bounced_sure_right" @click="mendSure" v-else>确认</span>
+          <span class="bounced_button bounced_sure" v-if="mendData.total_cnt<=0">{{$t('app.save')}}</span>
+          <span class="bounced_button bounced_sure bounced_sure_right" @click="mendSure" v-else>{{$t('app.save')}}</span>
         </el-form-item>
       </el-form>
     </bounced>
     <bounced :visible="bindModal" :newclass="big_bounced">
+      <span slot="header">{{$t('merchantlList.searchBank.bindShops')}}<i class="iClose el-icon-close"  @click="bindModal=false"></i></span>
       <el-form label-width="100px" class="demo-ruleForm" label-position="left"  :model="binddata" :rules="binddata_rule" ref="binddata">        
-        <el-form-item label="操作类型:">
-          <el-radio v-model="binddata.type" label="1">关联</el-radio>
-          <el-radio v-model="binddata.type" label="2">解绑</el-radio>
+        <el-form-item :label="$t('merchantlList.searchBank.operateStyle')+'：'">
+          <el-radio v-model="binddata.type" label="1">{{$t('merchantlList.bodyBank.bind')}}</el-radio>
+          <el-radio v-model="binddata.type" label="2">{{$t('merchantlList.bodyBank.unbind')}}</el-radio>
         </el-form-item> 
-        <el-form-item label="连锁店ID:" prop="id">
+        <el-form-item :label="$t('merchantlList.searchBank.chanId')+'：'" prop="id">
           <el-input v-model="binddata.id"></el-input>
         </el-form-item>
-        <el-form-item label="门店ID:" prop="ids">
-          <el-input v-model="binddata.ids" type="textarea" placeholder="请输入门店ID，多个分店用英文逗号分隔" :rows="6" auto-complete="off"></el-input>
+        <el-form-item :label="$t('merchantlList.searchBank.storeId')+'：'"  prop="ids">
+          <el-input v-model="binddata.ids" type="textarea" :placeholder="$t('yanzheng.shopId')" :rows="6" auto-complete="off"></el-input>
         </el-form-item>
         <el-form-item label="">
-          <span class="bounced_button bounced_sure bounced_sure_right" @click="addSure">确认</span>
-          <span class="bounced_button bounced_sure" @click="bindModal=false">取消</span>
+          <span class="bounced_button bounced_sure bounced_sure_right" @click="bindSure">{{$t('app.save')}}</span>
         </el-form-item>
       </el-form>
     </bounced>
@@ -205,7 +228,7 @@ export default {
           {
             required: false,
             pattern: /^[0-9\s]{0,300}$/,
-            message: "请输入连锁商户ID，只能包含数字",
+            message: this.$t('yanzheng.chainId'),
             trigger: "blur"
           }
         ],
@@ -213,7 +236,7 @@ export default {
           {
             required: false,
             pattern: /^[0-9\s]{0,300}$/,
-            message: "请输入渠道ID，只能包含数字",
+            message: this.$t('yanzheng.qdId'),
             trigger: "blur"
           }
         ],
@@ -221,21 +244,21 @@ export default {
           {
             required: false,
             pattern: /^[0-9a-zA-Z]+$/,
-            message: "仅支持输入字母或者数字，请重新输入!",
+            message: this.$t('yanzheng.loginNameString'),
             trigger: "blur"
           },
           {
             min: 1,
             max: 15,
-            message: "请输入不超过15个字符的登录账号!",
+            message: this.$t('yanzheng.loginNameNum'),
             trigger: "blur"
           }
         ],
         name: [
           {
             required: false,
-            pattern: /^[\u4e00-\u9fa5a-zA-Z0-9\s]{1,20}$/,
-            message: "请输入商户名称，长度在 1 到 20 个字符",
+            pattern: /^[\u4e00-\u9fa5a-zA-Z0-9\s]{1,30}$/,
+            message: this.$t('yanzheng.merNameL'),
             trigger: "blur"
           }
         ]
@@ -262,17 +285,24 @@ export default {
       merchants_now: [], //当前展示信息
       addId: "", //添加分店的类型- 的商户id
       binddata: {
-        type: 1,
+        type: '1',
         id: "",
         ids: ""
       },
       binddata_rule: {
-        id: "",
+        id: [
+          {
+            required: true,
+            pattern: /^[0-9\s]{0,300}$/,
+            message: this.$t('yanzheng.chainId'),
+            trigger: "blur"
+          }
+        ],
         ids: [
           {
             required: true,
             pattern: /^[\d+\s\,{1}(?=\d+\s)]{1,10000}$/,
-            message: "请输入门店ID，多个id用英文逗号分隔",
+            message: this.$t('yanzheng.shopId'),
             trigger: "blur"
           }
         ]
@@ -327,38 +357,10 @@ export default {
       searchPost(this.searchkey.username, "username", post_data);
       searchPost(this.searchkey.name, "name", post_data);
       searchPost(this.searchkey.status, "status", post_data);
-      this.$http
-        .get(this.list_url, {
-          params: post_data,
-          before: function() {
-            _this.loading = true;
-          }
-        })
-        .then(
-          function(response) {
-            _this.loading = false;
-            let data_return = response.body;
-            if (data_return.respcd == "0000") {
-              _this.pages_all = data_return.data.mchnt_cnt;
-              _this.merchants_now = data_return.data.mchnt_infos;
-            } else {
-              if (data_return.respmsg) {
-                _this.toastmsg = data_return.respmsg;
-              } else {
-                _this.toastmsg = data_return.resperr;
-              }
-              _this.visible_toast = true;
-            }
-          },
-          function(response) {
-            _this.loading = false;
-            _this.visible_toast = true;
-            _this.toastmsg = "网络超时!";
-          }
-        )
-        .catch(function(response) {
-          _this.loading = false;
-        });
+      this.$ajax_log.ajax_get(this, this.list_url, post_data, (data_return) => {
+        _this.pages_all = data_return.data.mchnt_cnt;
+        _this.merchants_now = data_return.data.mchnt_infos;
+      });
     },
     //提交查询
     search_sub: function() {
@@ -437,7 +439,7 @@ export default {
     //加分店
     addShop(val) {
       this.addId = val ? val : "";
-      this.addTitle = val ? "加分店" : "批量入门店";
+      this.addTitle = val ? this.$t('merchantlList.bodyBank.addshop') : this.$t('merchantlList.searchBank.addShops');
       // console.log(val);
       // if(val){
       //   this.addId = val;
@@ -457,44 +459,14 @@ export default {
       let _this = this;
       if (!this.addUpData.fileid) {
         this.$message({
-          message: "请先上传文件！",
+          message: this.$t('merchantlList.bodyBank.upFirst'),
           type: "warning"
         });
         return false;
       }
-      this.$http
-        .post(this.add_url, this.addUpData.fileid, {
-          before: function() {
-            _this.loading = true;
-          }
-        })
-        .then(
-          function(response) {
-            _this.addShopModal = false;
-            _this.loading = false;
-            let data_return = response.body;
-            if (data_return.respcd == "0000") {
-              _this.get_list();
-            } else {
-              if (data_return.respmsg) {
-                _this.toastmsg = data_return.respmsg;
-              } else {
-                _this.toastmsg = data_return.resperr;
-              }
-              _this.visible_toast = true;
-            }
-          },
-          function(response) {
-            _this.addShopModal = false;
-            _this.loading = false;
-            _this.visible_toast = true;
-            _this.toastmsg = "网络超时!";
-          }
-        )
-        .catch(function(response) {
-          _this.addShopModal = false;
-          _this.loading = false;
-        });
+      this.$ajax_log.ajax_post(this, this.add_url, this.addUpData.fileid, (data_return) => {
+        _this.get_list();
+      });
     },
     //添加上传文件
     uploadFile: function(e) {
@@ -507,41 +479,14 @@ export default {
       if (this.addId) {
         formdata.append("big_userid", this.addId);
       }
-      this.$http
-        .post(this.addUp_url, formdata, {
-          before: function() {
-            _this.loading = true;
-          }
-        })
-        .then(
-          function(response) {
-            _this.loading = false;
-            let data_return = response.body;
-            if (data_return.respcd == "0000") {
-              _this.addUpData.fileid = data_return.data.fileid;
-              _this.addUpData.total_cnt = data_return.data.total_cnt;
-              _this.$message({
-                message: "上传成功！",
-                type: "success"
-              });
-            } else {
-              if (data_return.respmsg) {
-                _this.toastmsg = data_return.respmsg;
-              } else {
-                _this.toastmsg = data_return.resperr;
-              }
-              _this.visible_toast = true;
-            }
-          },
-          function(response) {
-            _this.loading = false;
-            _this.visible_toast = true;
-            _this.toastmsg = "网络超时!";
-          }
-        )
-        .catch(function(response) {
-          _this.loading = false;
+      this.$ajax_log.ajax_post(this, this.addUp_url, formdata, (data_return) => {
+        _this.addUpData.fileid = data_return.data.fileid;
+        _this.addUpData.total_cnt = data_return.data.total_cnt;
+        _this.$message({
+          message: this.$t('merchantlList.bodyBank.upSuccess'),
+          type: "success"
         });
+      });
     },
     //修改上传
     uploadFile1: function(e) {
@@ -552,41 +497,14 @@ export default {
       formdata.append("content", file);
       formdata.append("file_name", file.name);
       // console.log(formdata);
-      this.$http
-        .post(this.mendUp_url, formdata, {
-          before: function() {
-            _this.loading = true;
-          }
-        })
-        .then(
-          function(response) {
-            _this.loading = false;
-            let data_return = response.body;
-            if (data_return.respcd == "0000") {
-              _this.mendData.fileid = data_return.data.fileid;
-              _this.mendData.total_cnt = data_return.data.total_cnt;
-              _this.$message({
-                message: "上传成功！",
-                type: "success"
-              });
-            } else {
-              if (data_return.respmsg) {
-                _this.toastmsg = data_return.respmsg;
-              } else {
-                _this.toastmsg = data_return.resperr;
-              }
-              _this.visible_toast = true;
-            }
-          },
-          function(response) {
-            _this.loading = false;
-            _this.visible_toast = true;
-            _this.toastmsg = "网络超时!";
-          }
-        )
-        .catch(function(response) {
-          _this.loading = false;
+      this.$ajax_log.ajax_post(this, this.mendUp_url, formdata, (data_return) => {
+        _this.mendData.fileid = data_return.data.fileid;
+        _this.mendData.total_cnt = data_return.data.total_cnt;
+        _this.$message({
+          message: this.$t('merchantlList.bodyBank.upSuccess'),
+          type: "success"
         });
+      });
     },
     //下载模板文件--加分店
     download: function() {
@@ -607,49 +525,20 @@ export default {
       let _this = this;
       if (!this.mendData.fileid) {
         this.$message({
-          message: "请先上传文件！",
+          message: this.$t('merchantlList.bodyBank.upFirst'),
           type: "warning"
         });
         return false;
       }
-      this.$http
-        .post(this.mend_url, this.mendData.fileid, {
-          before: function() {
-            _this.loading = true;
-          }
-        })
-        .then(
-          function(response) {
-            _this.mendShopModal = false;
-            _this.loading = false;
-            let data_return = response.body;
-            if (data_return.respcd == "0000") {
-              _this.get_list();
-            } else {
-              if (data_return.respmsg) {
-                _this.toastmsg = data_return.respmsg;
-              } else {
-                _this.toastmsg = data_return.resperr;
-              }
-              _this.visible_toast = true;
-            }
-          },
-          function(response) {
-            _this.mendShopModal = false;
-            _this.loading = false;
-            _this.visible_toast = true;
-            _this.toastmsg = "网络超时!";
-          }
-        )
-        .catch(function(response) {
-          _this.mendShopModal = false;
-          _this.loading = false;
-        });
+      this.$ajax_log.ajax_post(this, this.mend_url, this.mendData.fileid, (data_return) => {
+        _this.get_list();
+      });
     },
     //关联解绑
     bindShop() {
       this.bindModal = true;
-    }
+    },
+    bindSure(){},
   }
 };
 </script>

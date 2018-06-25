@@ -82,7 +82,8 @@ export default {
     merLogoutMY2: "注销后，该商户便不能进行交易以及登录钱方好近APP",
     merLogoutMN: "您确定要取消该商户的注销吗？",
     merLogoutMN2: "取消后，该商户便能够进行交易以及登录钱方好近APP",
-    migrate: "迁移"
+    migrate: "迁移",
+    save:"保存"
   },
   yanzheng: {
     qdNum: "请输入渠道编号，只能包含数字",
@@ -121,7 +122,10 @@ export default {
     legalName: "请输入法人姓名，长度在 1 到 20 个字符",
     loginName: "渠道系统的登录账号以及渠道识别码",
     loginNameString: "仅支持输入字母或者数字，请重新输入!",
-    loginNameNum: "请输入不超过15个字符的登录名!"
+    loginNameNum: "请输入不超过15个字符的登录名!",
+    chainId:"请输入连锁商户ID，只能包含数字",
+    qdId:"请输入连锁商户ID，只能包含数字",
+    shopId:"请输入门店ID，多个id用英文逗号分隔"
   },
   login: {
     qdSystem: "渠道系统",
@@ -363,9 +367,23 @@ export default {
       operateStatus: "操作状态",
       mendMuch: "批量修改",
       createMuch: "批量创建",
-      downId:'下载商户初始账号'
+      downId:'下载商户初始账号',
+      chanId: "连锁商户ID",
+      qdId: "渠道ID",
+      status: "状态",
+      closed: "注销",
+      opend: "正常",
+      search: "查询",
+      download: "下载",
+      reset: "重置",
+      addChain: "新增连锁商户",
+      addShops: "批量入门店",
+      mendShops: "批量修改信息",
+      bindShops: "门店关联/解绑",
+      storeId: "门店ID"
     },
     bodyBank: {
+      feeD: "费率明细",
       feeDetail: "商户费率明细",
       feeWeixin: "微信费率",
       feeBao: "支付宝费率",
@@ -405,7 +423,23 @@ export default {
       noMend: "银行卡已在审核中，请耐心等待",
       filename: "文件名称",
       detail: "详情",
-      selMerchant: "请选择待下载商户"
+      selMerchant: "请选择待下载商户",
+      feePercent: "费率",
+      view: "查看",
+      addshop: "加分店",
+      shopList: "分店列表",
+      detail: "详情",
+      upFirst:"请先上传文件！",
+      upSuccess:"上传成功！",
+      bind: "关联",
+      unbind: "解绑",
+      mendTip1:"下载修改信息的模板",
+      mendTip2:"上传修改后的文件，仅填写需要修改的部分",
+      mendTip3:"每次最多上传500条",
+      mendTip4:"点击上传",
+      addTip1:"",
+      addTip2:"",
+      addTip3:""
     }
   },
   salesmanlList: {

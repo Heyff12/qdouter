@@ -82,7 +82,8 @@ export default {
     merLogoutMY2: "Merchant cannot login merchant app and make transactions after deactivation.",
     merLogoutMN: "Do you want to cancel the deactivation?",
     merLogoutMN2: "Merchant can login merchant app and make transactions after cancelling deactivation.",
-    migrate: "迁移"
+    migrate: "迁移",
+    save:"Save"
   },
   yanzheng: {
     qdNum: "Please enter agent number, numbers only",
@@ -121,7 +122,10 @@ export default {
     legalName: "Please enter owner’s name in 1-20 characters.",
     loginName: "渠道系统的登录账号以及渠道识别码",
     loginNameString: "1-15 digits only, alphabet and/or number. Please try again",
-    loginNameNum: "1-15 digits only, alphabet and/or number. Please try again"
+    loginNameNum: "1-15 digits only, alphabet and/or number. Please try again",
+    chainId:"Please enter Group ID, numbers only",
+    qdId:"Please enter Agent ID, numbers only",
+    shopId:"Please enter the store ID，multiple stores width a comma ',' break to distinguish"
   },
   login: {
     qdSystem: "QF Pay Agent System",
@@ -363,9 +367,23 @@ export default {
       operateStatus: "Status",
       mendMuch: "批量修改",
       createMuch: "Batch Create",
-      downId:'Download inital account'
+      downId:'Download inital account',
+      chanId: "Group ID",
+      qdId: "Agent ID",
+      status: "Status",
+      closed: "Closed",
+      opend: "Opened",
+      search: "Enquiry",
+      download: "Download",
+      reset: "Reset",
+      addChain: "New Group",
+      addShops: "Batch Create Stores",
+      mendShops: "Batch Modify Stores",
+      bindShops: "Store Bind/Unbind",
+      storeId: "Store ID"
     },
     bodyBank: {
+      feeD: "Fee Rate Details",
       feeDetail: "Fee Rate Details",
       feeWeixin: "Wechat",
       feeBao: "Alipay",
@@ -405,7 +423,23 @@ export default {
       noMend: "银行卡已在审核中，请耐心等待",
       filename: "File Name",
       detail: "detail",
-      selMerchant: "请选择待下载商户"
+      selMerchant: "请选择待下载商户",
+      feePercent: "MDR",
+      view: "View",
+      addshop: "Add Branch",
+      shopList: "Branch List",
+      detail: "Detail",
+      upFirst:"请先上传文件！",
+      upSuccess:"Success",
+      bind: "Bind",
+      unbind: "Unbind",
+      mendTip1:"Download modify template",
+      mendTip2:"Re-upload the file after changes are done. Only change infos you want to modify",
+      mendTip3:"Up to 500 pieces of store information can be uploaded at a time",
+      mendTip4:"Upload File",
+      addTip1:"Download the template first",
+      addTip2:"Re-upload when finished",
+      addTip3:"Up to 5000 entries can be uploaded at each time in one file. The file format must be .xls"
     }
   },
   salesmanlList: {

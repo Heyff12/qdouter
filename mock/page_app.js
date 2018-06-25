@@ -26,6 +26,12 @@ require('./mock_busy');
 require('./mock_notice');
 // 使用 Mock
 var Mock = require('mockjs');
+
+Mock.setup({
+  timeout: "200-3000"
+});
+
+
 //渠道基本信息
 var qd_info = {
   "respcd": "0000",

@@ -8,7 +8,7 @@
                 <el-row :gutter="10">
                     <el-col :xs="24" :sm="24" :md="12" :lg="6">
                         <el-form-item label-width="0">
-                            <el-button type="primary" @click="download">{{$t('merchantlList.searchBank.downId')}}</el-button>
+                            <el-button type="primary" @click="download" :disabled="product.length<=0">{{$t('merchantlList.searchBank.downId')}}</el-button>
                         </el-form-item>
                     </el-col>
                 </el-row>
@@ -71,13 +71,14 @@ export default {
     },
     download() {
       // console.log(this.product);
-      if (this.product.length <= 0) {
-        this.$message({
-          message: this.$t('merchantlList.bodyBank.selMerchant'),
-          type: "warning"
-        });
-        return false;
-      }
+      //判断是否选中id
+      // if (this.product.length <= 0) {
+      //   this.$message({
+      //     message: this.$t('merchantlList.bodyBank.selMerchant'),
+      //     type: "warning"
+      //   });
+      //   return false;
+      // }
       let url = this.down_url + "?big_userid="+ this.pageId +"mchnt_uids=" + this.product;
       window.open(url);
     },
