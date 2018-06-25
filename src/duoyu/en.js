@@ -137,7 +137,8 @@ export default {
     bankcode:"Enter account, 1 to 128 characters",
     bankNum:"Enter account No., 1 to 128 characters",
     swift:"Enter swift code, 1 to 128 characters",
-    rule:"Enter HK rules, 1 to 128 characters"
+    rule:"Enter HK rules, numbers only",
+    fee: "Please enter a correct MDR"
   },
   login: {
     qdSystem: "QF Pay Agent System",

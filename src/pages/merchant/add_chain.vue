@@ -323,7 +323,7 @@ export default {
       let errNum = document.getElementsByClassName('errBorder').length;
       if(errNum>0){
         this.$message({
-          message: "费率填写错误",
+          message: this.$t('yanzheng.fee'),
           type: "error"
         });
       }
@@ -403,7 +403,7 @@ export default {
       let reg = /^[0-9]{0,2}(\.{1}\d{1,2}){0,1}$/;
       if (!reg.test(val)) {
         this.$message({
-          message: "费率填写错误",
+          message: this.$t('yanzheng.fee'),
           type: "error"
         });
         e.target.className = "el-input__inner errBorder"
