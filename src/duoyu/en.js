@@ -129,7 +129,7 @@ export default {
     bandName:"Enter bank brand name, 1 to 128 characters",
     companyName:"Enter company name, 1 to 128 characters",
     SalesName:"Enter sales account, 1 to 15 characters",
-    merStyle:"Please enter Merchant category code, numbers only",
+    merStyle:"Please enter Merchant category code, 2 to 4 digits",
     contact:"Enter contact, 1 to 128 characters",
     contactEmail:"Email",
     bank:"Enter bank name, 1 to 128 characters",

@@ -176,7 +176,7 @@ export default {
         mchnt_mcc: [
           {
             required: false,
-            pattern: /^[0-9\s]{2,4}$/,
+            pattern: /^[0-9]{2,4}$/,
             message: this.$t('yanzheng.merStyle'),
             trigger: "blur"
           }
@@ -228,9 +228,9 @@ export default {
         bankaccount: [
           {
             required: false,
-            pattern: /^[0-9a-zA-Z\s]+$/,
-            min: 1,
-            max: 128,
+            pattern: /^[0-9a-zA-Z\s]{1,128}$/,
+            // min: 1,
+            // max: 128,
             message: this.$t('yanzheng.bankNum'),
             trigger: "blur"
           }
@@ -238,9 +238,9 @@ export default {
         bankcode: [
           {
             required: false,
-            pattern: /^[0-9a-zA-Z\s]+$/,
-            min: 1,
-            max: 128,
+            pattern: /^[0-9a-zA-Z\s]{1,128}$/,
+            // min: 1,
+            // max: 128,
             message:this.$t('yanzheng.swift'),
             trigger: "blur"
           }
@@ -248,9 +248,9 @@ export default {
         clear_rule: [
           {
             required: false,
-            pattern: /^[0-9\s]+$/,
-            min: 1,
-            max: 128,
+            pattern: /^[0-9\s]{1,128}$/,
+            // min: 1,
+            // max: 128,
             message: this.$t('yanzheng.rule'),
             trigger: "blur"
           }
