@@ -129,15 +129,15 @@ export default {
     bandName:"Enter bank brand name, 1 to 128 characters",
     companyName:"Enter company name, 1 to 128 characters",
     SalesName:"Enter sales account, 1 to 15 characters",
-    merStyle:"Please enter Merchant category code, 2 to 4 digits",
+    merStyle:"2-4 digits only. Please try again.",
     contact:"Enter contact, 1 to 128 characters",
     contactEmail:"Email",
-    bank:"Enter bank name, 1 to 128 characters",
-    branch:"Enter branch of bank, 1 to 128 characters",
-    bankcode:"Enter account, 1 to 128 characters",
-    bankNum:"Enter account No., 1 to 128 characters",
-    swift:"Enter swift code, 1 to 128 characters",
-    rule:"Enter HK rules, numbers only",
+    bank:"Enter bank name, 1 to 50 characters",
+    branch:"Enter branch of bank, 1 to 256 characters",
+    bankcode:"Enter account, 1 to 256 characters",
+    bankNum:"Enter account No., 1 to 256 characters",
+    swift:"Enter swift code, 1 to 50 characters",
+    rule:"1-9 digits only. Please try again.",
     fee: "Please enter a correct MDR"
   },
   login: {
@@ -371,14 +371,14 @@ export default {
   merchantlList: {
     titleBank: {
       title: "Merchant Info",
-      sonTitle: "子商户列表"
+      sonTitle: "Shop List"
     },
     searchBank: {
       download: "Download",
       operateTime: "Last Modify Time",
       operateStyle: "Style",
       operateStatus: "Status",
-      mendMuch: "批量修改",
+      mendMuch: "Batch Modify",
       createMuch: "Batch Create",
       downId:'Download inital account',
       chanId: "Group ID",

@@ -202,7 +202,7 @@ export default {
           {
             required: false,
             min: 1,
-            max: 128,
+            max: 50,
             message: this.$t('yanzheng.bank'),
             trigger: "blur"
           }
@@ -211,7 +211,7 @@ export default {
           {
             required: false,
             min: 1,
-            max: 128,
+            max: 256,
             message: this.$t('yanzheng.branch'),
             trigger: "blur"
           }
@@ -220,7 +220,7 @@ export default {
           {
             required: false,
             min: 1,
-            max: 128,
+            max: 256,
             message: this.$t('yanzheng.bankcode'),
             trigger: "blur"
           }
@@ -228,7 +228,7 @@ export default {
         bankaccount: [
           {
             required: false,
-            pattern: /^[0-9a-zA-Z\s]{1,128}$/,
+            pattern: /^[0-9a-zA-Z\s]{1,256}$/,
             // min: 1,
             // max: 128,
             message: this.$t('yanzheng.bankNum'),
@@ -238,7 +238,7 @@ export default {
         bankcode: [
           {
             required: false,
-            pattern: /^[0-9a-zA-Z\s]{1,128}$/,
+            pattern: /^[0-9a-zA-Z\s]{1,50}$/,
             // min: 1,
             // max: 128,
             message:this.$t('yanzheng.swift'),
@@ -248,7 +248,7 @@ export default {
         clear_rule: [
           {
             required: false,
-            pattern: /^[0-9\s]{1,128}$/,
+            pattern: /^[0-9\s]{1,9}$/,
             // min: 1,
             // max: 128,
             message: this.$t('yanzheng.rule'),
