@@ -27,7 +27,7 @@
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="24" :lg="24"></el-col>
-          <el-col :xs="24" :sm="24" :md="12" :lg="6">
+          <!-- <el-col :xs="24" :sm="24" :md="12" :lg="6">
             <el-form-item :label="$t('merchantlList.searchBank.status')+'：'">
               <el-select v-model="searchkey.status" placeholder="">
                 <el-option :label="$t('app.all')" value=""></el-option>
@@ -35,7 +35,7 @@
                 <el-option :label="$t('merchantlList.searchBank.opend')" value="0"></el-option>
               </el-select>
             </el-form-item>
-          </el-col>
+          </el-col> -->
           <el-col :xs="24" :sm="24" :md="12" :lg="6">
             <el-form-item label-width="0" class="t_c">
               <el-button type="primary" @click="search_sub">{{$t('merchantlList.searchBank.search')}}</el-button>
@@ -214,7 +214,7 @@ export default {
         qd_uid: "",
         username: "",
         name: "",
-        status: ""
+        // status: ""
       },
       searchkey_rule: {
         mchnt_uid: [
@@ -349,7 +349,7 @@ export default {
       searchPost(this.searchkey.qd_uid, "qd_uid", post_data);
       searchPost(this.searchkey.username, "username", post_data);
       searchPost(this.searchkey.name, "name", post_data);
-      searchPost(this.searchkey.status, "status", post_data);
+      // searchPost(this.searchkey.status, "status", post_data);
       this.$ajax_log.ajax_get(this, this.list_url, post_data, data_return => {
         _this.pages_all = data_return.data.mchnt_cnt;
         _this.merchants_now = data_return.data.mchnt_infos;
@@ -377,7 +377,7 @@ export default {
             qd_uid: _this.searchkey.qd_uid.replace(/\s/g, ""),
             username: _this.searchkey.username.replace(/\s/g, ""),
             name: _this.searchkey.name.replace(/\s/g, ""),
-            status: _this.searchkey.status
+            // status: _this.searchkey.status
           };
           let url = this.down_url + "?";
           let data;
