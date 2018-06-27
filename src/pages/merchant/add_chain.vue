@@ -168,7 +168,7 @@ export default {
         slsm_username: [
           {
             required: true,
-            pattern: /^[0-9a-zA-Z]{1,15}$/,
+            pattern: /^1[0-9]{10}$/,
             message: this.$t('yanzheng.SalesName'),
             trigger: "blur"
           }
@@ -340,7 +340,7 @@ export default {
       let post_data = {
         brand_name: this.base.brand_name,
         company_name: this.base.company_name,
-        qd_uid: this.base.qd_uid
+        // qd_uid: this.base.qd_uid
       };
       searchPost(this.base.contact_name, "contact_name", post_data);
       searchPost(this.base.contact_email, "contact_email", post_data);
