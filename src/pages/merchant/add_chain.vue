@@ -23,7 +23,7 @@
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item :label="$t('merchantlList.bodyBank.salName')" prop="slsm_username">
+              <el-form-item :label="$t('merchantlList.bodyBank.salName')" prop="slsm_username" @blur="getQd_uid">
                 <el-input v-model="base.slsm_username" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
@@ -135,6 +135,7 @@ export default {
       base: {
         brand_name: "",
         company_name: "",
+        slsm_username:"",
         contact_name: "",
         contact_email: "",
         mchnt_mcc: "",
@@ -258,12 +259,15 @@ export default {
       },
       add_url: "/qudao/v1/api/chain/create",
       pro_url: "/qudao/v1/api/tools/product_info",
-      fixInfo: {}
+      qdid_url: "/qudao/v1/api/slsm/info_by_mobile",
+      product_url:"/qudao/v1/api/qd/",
+      fixInfo: {},
+      qdUid:'',
     };
   },
   created: function() {
     this.fetchPath();
-    this.getpro_list();
+    // this.getpro_list();//取消
   },
   computed: {},
   watch: {},
@@ -305,6 +309,36 @@ export default {
     goback: function() {
       this.$router.go(-1);
     },
+    //获取渠道id-校验输入业务员名称是否正确
+    getQd_uid(){
+      let reg=/^1[0-9]{10}$/;
+      let val = this.base.slsm_username;
+      if(reg.test(val)){
+        this.getQdId(val);        
+      }
+    },
+    //获取渠道id
+    getQdId(val){
+      let _this = this;
+      let post_data = {
+        slsm_mobile: val
+      };
+      this.$ajax_log.ajax_get(this, this.qdid_url, post_data, data_return => {
+        _this.qdUid = data_return.data.qd_uid;
+        _this.getProduct(_this.qdUid);
+      });
+    },
+    //获取产品
+    getProduct(id){
+      let _this = this;
+      let post_data = {
+        prod_cate: 1
+      };
+      this.$ajax_log.ajax_get(this, this.product_url+id+'/product_info', post_data, data_return => {
+        _this.proList = data_return.data;
+        _this.getproShow(data_return.data);
+      });
+    },
     //产品选择监听事件
     handleSelectionChange(val) {
       let select_val = val;
@@ -340,7 +374,7 @@ export default {
       let post_data = {
         brand_name: this.base.brand_name,
         company_name: this.base.company_name,
-        // qd_uid: this.base.qd_uid
+        slsm_username: this.base.slsm_username
       };
       searchPost(this.base.contact_name, "contact_name", post_data);
       searchPost(this.base.contact_email, "contact_email", post_data);
@@ -362,7 +396,7 @@ export default {
         });
       });
     },
-    //获取产品列表
+    //获取产品列表--取消
     getpro_list: function() {
       let _this = this;
       let post_data = {
