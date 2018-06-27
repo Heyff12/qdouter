@@ -527,10 +527,13 @@ export default {
         });
         return false;
       }
+      let post_data = {
+        fileid:this.mendData.fileid
+      };
       this.$ajax_log.ajax_post(
         this,
         this.mend_url,
-        this.mendData.fileid,
+        post_data,
         data_return => {
           _this.get_list();
         }
