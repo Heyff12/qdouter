@@ -118,7 +118,7 @@
             <div class="ipload">
               <p>{{$t('merchantlList.bodyBank.mendTip4')}}</p>
               <input type="file" name="upload" size="32" 
-              accept="application/vnd.ms-excel" 
+              accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" 
               class="file file_style" value="" v-on:change="uploadFile($event)" />
             </div>
           </form>
@@ -154,7 +154,7 @@
             <div class="ipload">
               <p>{{$t('merchantlList.bodyBank.mendTip4')}}</p>
               <input type="file" name="mend" size="32" 
-              accept="application/vnd.ms-excel" 
+              accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" 
               class="file file_style" value="" v-on:change="uploadFile1($event)" />
             </div>
           </form>
