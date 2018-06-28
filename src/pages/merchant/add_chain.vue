@@ -23,8 +23,8 @@
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item :label="$t('merchantlList.bodyBank.salName')" prop="slsm_username" @blur="getQd_uid">
-                <el-input v-model="base.slsm_username" :disabled="pageStyle=='scan'"></el-input>
+              <el-form-item :label="$t('merchantlList.bodyBank.salName')" prop="slsm_username">
+                <el-input v-model="base.slsm_username" :disabled="pageStyle=='scan'" @blur="getQd_uid"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
@@ -92,7 +92,7 @@
                 </el-table-column>
                 <el-table-column :label="$t('merchantlList.bodyBank.feePercent')" resizable min-width="100px">
                     <template scope="scope">
-                      <el-input v-model.number="scope.row.value" @blur="check_fee(scope.row.value,$event)">
+                      <el-input v-model="scope.row.value" @blur="check_fee(scope.row.value,$event)">
                         <template slot="append">%</template>
                       </el-input>
                     </template>
