@@ -47,8 +47,8 @@
                     </el-table-column>
                     <el-table-column :label="$t('merchantlList.searchBank.operateStyle')" resizable min-width="100px">
                         <template scope="scope">
-                            <span v-if="scope.row.style==1">{{$t('merchantlList.searchBank.createMuch')}}</span>
-                            <span v-if="scope.row.style==2">{{$t('merchantlList.searchBank.mendMuch')}}</span>
+                            <span v-if="scope.row.optype==1">{{$t('merchantlList.searchBank.createMuch')}}</span>
+                            <span v-if="scope.row.optype==2">{{$t('merchantlList.searchBank.mendMuch')}}</span>
                         </template>
                     </el-table-column>
                     <el-table-column prop="filename" :label="$t('merchantlList.bodyBank.filename')" resizable min-width="180px">
