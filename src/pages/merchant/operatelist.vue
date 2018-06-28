@@ -55,7 +55,9 @@
                     </el-table-column>
                     <el-table-column :label="$t('merchantlList.searchBank.operateStatus')" resizable min-width="180px">
                         <template scope="scope">
-                            {{scope.row.succ_cnt}}{{$t('generalPro.searchBank.success')}}，{{scope.row.fail_cnt}}{{$t('generalPro.searchBank.failure')}}
+                            <span v-show="scope.row.succ_cnt>0">{{scope.row.succ_cnt}}{{$t('generalPro.searchBank.success')}}</span>
+                            <span v-show="scope.row.succ_cnt>0 && scope.row.fail_cnt>0">，</span>
+                            <span v-show="scope.row.fail_cnt>0">{{scope.row.fail_cnt}}{{$t('generalPro.searchBank.failure')}}</span>  
                         </template>
                     </el-table-column>
                     <el-table-column :label="$t('merchantlList.bodyBank.detail')" resizable min-width="100px">
