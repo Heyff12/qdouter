@@ -28,6 +28,7 @@ export default new Vuex.Store({
     notice_read_no: 0, //公告未读信息数目
     if_ad: 0, //当前渠道是否开通广告管理，开通=1, 未开通=0
     qd_level: 0, //当前渠道级别
+    qd_country: 'zh', //当前渠道所属国家
     currency: '', //当前用户-币种
     language: '', //当前选择的语言--取消使用
     if_alliance: 2, //判断商圈联盟 栏目 是否显示，该外部模块入口状态， 2 关闭 1 开启
@@ -62,6 +63,9 @@ export default new Vuex.Store({
     },
     t_qd_level(state, obj) {
       state.qd_level = obj;
+    },
+    t_qd_country(state, obj) {
+      state.qd_country = obj;
     },
     t_currency(state, obj) {
       state.currency = obj;
