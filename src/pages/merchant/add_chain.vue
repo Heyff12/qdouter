@@ -409,6 +409,7 @@ export default {
     },
     //重组列表
     getproShow(data) {
+      this.proListShow = [];
       data.forEach(item => {
         this.proListShow.push({
           product_id: item.product_id,
