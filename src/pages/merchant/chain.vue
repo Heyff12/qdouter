@@ -451,7 +451,6 @@ export default {
     },
     //确认添加
     addSure() {
-      let _this = this;
       if (!this.addUpData.fileid) {
         this.$message({
           message: this.$t("merchantlList.bodyBank.upFirst"),
@@ -466,7 +465,12 @@ export default {
         post_data.big_userid=this.addId;
       }
       this.$ajax_log.ajax_post(this, this.add_url, post_data, data_return => {
-        _this.get_list();
+        this.addShopModal = false;
+        this.get_list();
+      },data_return => {
+        this.addShopModal = false;
+      },data_return => {
+        this.addShopModal = false;
       });
     },
     //添加上传文件
@@ -520,7 +524,6 @@ export default {
     },
     //修改确定
     mendSure() {
-      let _this = this;
       if (!this.mendData.fileid) {
         this.$message({
           message: this.$t("merchantlList.bodyBank.upFirst"),
@@ -536,7 +539,14 @@ export default {
         this.mend_url,
         post_data,
         data_return => {
-          _this.get_list();
+          this.mendShopModal = false;
+          this.get_list();
+        },
+        data_return => {
+          this.mendShopModal = false;
+        },
+        data_return => {
+          this.mendShopModal = false;
         }
       );
     },
