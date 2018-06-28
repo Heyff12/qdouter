@@ -24,8 +24,8 @@
             <el-submenu index="3">
               <template slot="title"><i class="icon_left icon_shanghu_w"></i>{{$t('menus.merManage')}}</template>
               <el-menu-item index="/merchant_index">{{$t('menus.merManage')}}</el-menu-item>
-              <el-menu-item index="/merchant_chain">{{$t('menus.merChainManage')}}</el-menu-item>
-              <el-menu-item index="/merchant_list">{{$t('menus.merChainList')}}</el-menu-item>
+              <el-menu-item index="/merchant_chain" v-if="$store.state.qd_country!='CN'">{{$t('menus.merChainManage')}}</el-menu-item>
+              <el-menu-item index="/merchant_list" v-if="$store.state.qd_country!='CN'">{{$t('menus.merChainList')}}</el-menu-item>
             </el-submenu>
             <el-submenu index="4">
               <template slot="title"><i class="icon_left icon_slsm_w"></i>{{$t('menus.salesmanManage')}}</template>
@@ -512,18 +512,19 @@ export default {
     get_info: function() {
       var _this = this;
       this.$ajax_log.ajax_get(this, this.qd_info_url, '', (data_return) => {
-        _this.base = data_return.data.base;
-        _this.$store.commit('t_qd_level', data_return.data.base.level); //设置是否开通广告管理
-        _this.$store.commit('t_qudao_name', _this.base.name); //设置全局名字
-        _this.$store.commit('t_currency', data_return.data.base.currencySymbol); //设置币种
+        this.base = data_return.data.base;
+        this.$store.commit('t_qd_level', data_return.data.base.level); //设置是否开通广告管理
+        this.$store.commit('t_qudao_name', this.base.name); //设置全局名字
+        this.$store.commit('t_currency', data_return.data.base.currencySymbol); //设置币种
+        this.$store.commit('t_qd_country', data_return.data.base.country); //设置渠道所属国家
         // _this.allianceQdId = _this.base.qd_uid;
         // setTimeout(() => {
         //   _this.get_ifAlliance();
         // }, 0);
         //console.log(_this.$store.state.qd_level);
         // if (_this.base.logo_url.length <= 0 || !_this.base.logo_url) {
-        if (!_this.base.logo_url) {
-          _this.base.logo_url = '/qudao/v1/static/login/img/logo.png';
+        if (!this.base.logo_url) {
+          this.base.logo_url = '/qudao/v1/static/login/img/logo.png';
         }
       });
       // this.$http.get(this.qd_info_url, {
