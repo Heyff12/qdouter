@@ -351,7 +351,7 @@ export default {
       searchPost(this.searchkey.name, "name", post_data);
       // searchPost(this.searchkey.status, "status", post_data);
       this.$ajax_log.ajax_get(this, this.list_url, post_data, data_return => {
-        _this.pages_all = data_return.data.mchnt_cnt;
+        _this.pages_all = data_return.data.total_cnt;
         _this.merchants_now = data_return.data.mchnt_infos;
       });
     },
