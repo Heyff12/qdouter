@@ -12,7 +12,7 @@
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="12" :lg="6">
-            <el-form-item :label="$t('generalPro.searchBank.merName')" prop="mchnt_name">
+            <el-form-item :label="$t('generalPro.bodyBank.shopName1')+':'" prop="mchnt_name">
               <el-input v-model.trim="searchkey.mchnt_name"></el-input>
             </el-form-item>
           </el-col>
@@ -94,7 +94,7 @@
         <el-table :data="merchants_now" border stripe style="width: 100%">
           <!-- <el-table-column prop="qd_info.base.userid" :label="$t('generalPro.bodyBank.qdNum')" resizable min-width="80px" fixed>
           </el-table-column> -->
-          <el-table-column prop="shopname" :label="$t('generalPro.bodyBank.merName')" resizable min-width="120px" fixed>
+          <el-table-column prop="shopname" :label="$t('generalPro.bodyBank.shopName1')" resizable min-width="120px" fixed>
           </el-table-column>
           <el-table-column prop="mchnt_uid" :label="$t('generalPro.bodyBank.merNumId')" resizable min-width="100px" >
           </el-table-column>
@@ -869,7 +869,7 @@ export default {
         mchnt_name: [{
           required: false,
           pattern: /^[\u4e00-\u9fa5a-zA-Z0-9\s]{1,20}$/,
-          message: this.$t('yanzheng.merName'),
+          message: this.$t('yanzheng.merName1'),
           trigger: 'blur'
         }],
         mchnt_mobile: [{

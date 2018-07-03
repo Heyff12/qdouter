@@ -92,6 +92,7 @@ export default {
     merNumId: "Please enter Merchant ID, numbers only",
     merName: "Please enter merchant name. 1 to 20 characters",
     merNameL: "Please enter merchant name. 1 to 30 characters",
+    merName1: "请输入店铺名称，长度在 1 到 20 个字符",
     tel: "Please enter a correct phone number",
     salesman: "Please enter Sales Rep. 1 to 20 characters",
     salesmanNameM: "Please enter Salesman Name. 1 to 20 characters",
@@ -325,6 +326,7 @@ export default {
       frozen: "冻结",
       unfrozen: "取消冻结",
       shopName: "Merchant Name",
+      shopName1: "店铺名称",
       loginName: "Login Account"
     }
   },
