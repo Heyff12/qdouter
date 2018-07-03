@@ -59,7 +59,7 @@
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item :label="$t('merchantlList.bodyBank.bankNameAccount')" prop="bankuser">
+              <el-form-item :label="$t('merchantlList.bodyBank.bankNameAccount1')" prop="bankuser">
                 <el-input v-model="base.bankuser" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
@@ -222,7 +222,7 @@ export default {
             required: false,
             min: 1,
             max: 256,
-            message: this.$t('yanzheng.bankcode'),
+            message: this.$t('yanzheng.bankcode1'),
             trigger: "blur"
           }
         ],
