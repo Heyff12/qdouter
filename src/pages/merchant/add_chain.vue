@@ -32,7 +32,7 @@
                 <el-input v-model="base.mchnt_mcc" placeholder="" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
-            <!-- <el-col :xs="24" :sm="24" :md="12" :lg="8">
+            <el-col :xs="24" :sm="24" :md="12" :lg="8">
               <el-form-item :label="$t('merchantlList.bodyBank.contactName')" prop="contact_name">
                 <el-input v-model="base.contact_name" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
@@ -41,7 +41,7 @@
               <el-form-item :label="$t('merchantlList.bodyBank.contactEmail')" prop="contact_email">
                 <el-input v-model="base.contact_email" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
-            </el-col> -->
+            </el-col>
             <el-col :xs="24" :sm="24" :md="24" :lg="24">
               <div class="clearfix_liner1"></div>
             </el-col>
@@ -136,8 +136,8 @@ export default {
         brand_name: "",
         company_name: "",
         slsm_username:"",
-        // contact_name: "",
-        // contact_email: "",
+        contact_name: "",
+        contact_email: "",
         mchnt_mcc: "",
         head_bankname: "",
         branch_bankname: "",
@@ -182,23 +182,23 @@ export default {
             trigger: "blur"
           }
         ],
-        // contact_name: [
-        //   {
-        //     required: false,
-        //     min: 1,
-        //     max: 128,
-        //     message: this.$t('yanzheng.contact'),
-        //     trigger: "blur"
-        //   }
-        // ],
-        // contact_email: [
-        //   {
-        //     type: "email",
-        //     required: false,
-        //     message: this.$t('yanzheng.contactEmail'),
-        //     trigger: "blur"
-        //   }
-        // ],
+        contact_name: [
+          {
+            required: false,
+            min: 1,
+            max: 128,
+            message: this.$t('yanzheng.contact'),
+            trigger: "blur"
+          }
+        ],
+        contact_email: [
+          {
+            type: "email",
+            required: false,
+            message: this.$t('yanzheng.contactEmail'),
+            trigger: "blur"
+          }
+        ],
         head_bankname: [
           {
             required: false,
@@ -376,8 +376,8 @@ export default {
         company_name: this.base.company_name,
         slsm_username: this.base.slsm_username
       };
-      // searchPost(this.base.contact_name, "contact_name", post_data);
-      // searchPost(this.base.contact_email, "contact_email", post_data);
+      searchPost(this.base.contact_name, "contact_name", post_data);
+      searchPost(this.base.contact_email, "contact_email", post_data);
       searchPost(this.base.mchnt_mcc, "mchnt_mcc", post_data);
       searchPost(this.base.head_bankname, "head_bankname", post_data);
       searchPost(this.base.branch_bankname, "branch_bankname", post_data);
