@@ -22,7 +22,7 @@
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="12" :lg="6">
-            <el-form-item :label="$t('generalPro.searchBank.merName')" prop="name">
+            <el-form-item :label="$t('merchantlList.bodyBank.brand')" prop="name">
               <el-input v-model.trim="searchkey.name"></el-input>
             </el-form-item>
           </el-col>
@@ -57,7 +57,7 @@
         <el-table :data="merchants_now" border stripe style="width: 100%">
           <el-table-column prop="mchnt_uid" :label="$t('merchantlList.searchBank.chanId')" resizable min-width="130px">
           </el-table-column>
-          <el-table-column prop="name" :label="$t('generalPro.bodyBank.merName')" resizable min-width="120px">
+          <el-table-column prop="name" :label="$t('merchantlList.bodyBank.brand')" resizable min-width="120px">
           </el-table-column>
           <el-table-column prop="username" :label="$t('generalPro.bodyBank.loginName')" resizable min-width="100px">
           </el-table-column>
@@ -251,7 +251,7 @@ export default {
           {
             required: false,
             pattern: /^[\u4e00-\u9fa5a-zA-Z0-9\s]{1,30}$/,
-            message: this.$t("yanzheng.merNameL"),
+            message: this.$t("yanzheng.bandName1"),
             trigger: "blur"
           }
         ]

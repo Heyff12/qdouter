@@ -127,6 +127,7 @@ export default {
     qdId:"Please enter Agent ID, numbers only",
     shopId:"Please enter the store ID，multiple stores width a comma ',' break to distinguish",
     bandName:"Enter bank brand name, 1 to 128 characters",
+    bandName1:"Enter bank brand name, 1 to 30 characters",
     companyName:"Enter company name, 1 to 128 characters",
     // SalesName:"Enter sales account, 1 to 15 characters",
     SalesName:"Please enter Phone No.",

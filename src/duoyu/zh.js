@@ -127,6 +127,7 @@ export default {
     qdId:"请输入连锁商户ID，只能包含数字",
     shopId:"请输入门店ID，多个id用英文逗号分隔",
     bandName:"请输入品牌名称，长度在 1 到 128 个字符",
+    bandName1:"请输入品牌名称，长度在 1 到 30 个字符",
     companyName:"请输入公司名称，长度在 1 到 128 个字符",
     // SalesName:"请输入业务员登录账号，长度在 1 到 15 个字符",
     SalesName:"请输入手机号",
