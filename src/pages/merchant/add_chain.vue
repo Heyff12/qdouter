@@ -85,9 +85,9 @@
                 <p class="title">{{$t('merchantlList.bodyBank.product')}}</p>
             </el-col>
            <el-col :xs="24" :sm="24" :md="24" :lg="24">
-              <el-table ref="multipleTable" :data="proListShow" border stripe style="width: 100%" @selection-change="handleSelectionChange">
-                <el-table-column type="selection" width="55">
-                </el-table-column>
+              <el-table ref="multipleTable" :data="proListShow" border stripe style="width: 100%">
+                <!-- <el-table-column type="selection" width="55">
+                </el-table-column> -->
                 <el-table-column prop="name" :label="$t('generalPro.bodyBank.tradeStyle')" resizable min-width="120px">
                 </el-table-column>
                 <el-table-column :label="$t('merchantlList.bodyBank.feePercent')" resizable min-width="100px">
@@ -145,7 +145,7 @@ export default {
         bankuser: "",
         bankcode: "",
         clear_rule: "",
-        products: []
+        products: {}
       },
       rules: {
         brand_name: [
@@ -339,7 +339,7 @@ export default {
         _this.getproShow(data_return.data);
       });
     },
-    //产品选择监听事件
+    //产品选择监听事件--取消
     handleSelectionChange(val) {
       let select_val = val;
       this.proSelId = [];
@@ -385,8 +385,12 @@ export default {
       searchPost(this.base.bankuser, "bankuser", post_data);
       searchPost(this.base.bankcode, "bankcode", post_data);
       searchPost(this.base.clear_rule, "clear_rule", post_data);
-      if (this.proSelId.length > 0) {
-        post_data.products = this.getIds();
+      // if (this.proSelId.length > 0) {
+      //   post_data.products = this.getIds();
+      // }
+      let idList = this.getIdsNew();
+      if (JSON.stringify(idList)!='{}') {
+        post_data.products = idList;
       }
       this.$ajax_log.ajax_post(this, this.add_url, post_data, data_return => {
         _this.visible_toast = true;
@@ -418,7 +422,7 @@ export default {
         });
       });
     },
-    //重组提交数据
+    //重组提交数据--取消
     getIds() {
       this.base.products = [];
       this.proSelId.forEach(item => {
@@ -427,6 +431,15 @@ export default {
             this.base.products.push({ [item]: this.proListShow[i].value });
             return false;
           }
+        }
+      });
+      return this.base.products;
+    },
+    getIdsNew() {
+      this.base.products = {};
+      this.proListShow.forEach(item => {
+        if (item.value.length>0) {
+            this.base.products[item.product_id] = item.value;
         }
       });
       return this.base.products;
