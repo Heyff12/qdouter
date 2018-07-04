@@ -14,32 +14,32 @@
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
               <el-form-item :label="$t('merchantlList.bodyBank.brand')" prop="brand_name">
-                <el-input v-model="base.brand_name" :disabled="pageStyle=='scan'"></el-input>
+                <el-input v-model="base.brand_name" :disabled="pageStyle=='scan'" :placeholder="$t('yanzheng.placeholder.brand')"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
               <el-form-item :label="$t('merchantlList.bodyBank.companyName')" prop="company_name">
-                <el-input v-model="base.company_name" :disabled="pageStyle=='scan'"></el-input>
-              </el-form-item>
-            </el-col>
-            <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item :label="$t('merchantlList.bodyBank.salName')" prop="slsm_username">
-                <el-input v-model="base.slsm_username" :disabled="pageStyle=='scan'" @blur="getQd_uid"></el-input>
+                <el-input v-model="base.company_name" :disabled="pageStyle=='scan'" :placeholder="$t('yanzheng.placeholder.companyName')"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
               <el-form-item :label="$t('merchantlList.bodyBank.merStyle')" prop="mchnt_mcc">
-                <el-input v-model="base.mchnt_mcc" placeholder="" :disabled="pageStyle=='scan'"></el-input>
+                <el-input v-model="base.mchnt_mcc" placeholder="" :disabled="pageStyle=='scan'" :placeholder="$t('yanzheng.placeholder.merStyle')"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
-              <el-form-item :label="$t('merchantlList.bodyBank.contactName')" prop="contact_name">
-                <el-input v-model="base.contact_name" :disabled="pageStyle=='scan'"></el-input>
+              <el-form-item :label="$t('merchantlList.bodyBank.contactName')" prop="contact_mobile">
+                <el-input v-model="base.contact_mobile" :disabled="pageStyle=='scan'"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
               <el-form-item :label="$t('merchantlList.bodyBank.contactEmail')" prop="contact_email">
                 <el-input v-model="base.contact_email" :disabled="pageStyle=='scan'"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :xs="24" :sm="24" :md="12" :lg="8">
+              <el-form-item :label="$t('merchantlList.bodyBank.salName')" prop="slsm_username">
+                <el-input v-model="base.slsm_username" :disabled="pageStyle=='scan'" @blur="getQd_uid"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="24" :lg="24">
@@ -50,22 +50,22 @@
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
               <el-form-item :label="$t('merchantlList.bodyBank.bankNameGet')" prop="head_bankname">
-                <el-input v-model="base.head_bankname" :disabled="pageStyle=='scan'"></el-input>
+                <el-input v-model="base.head_bankname" :disabled="pageStyle=='scan'" :placeholder="$t('yanzheng.placeholder.head_bankname')"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
               <el-form-item :label="$t('merchantlList.bodyBank.branchBank')" prop="branch_bankname">
-                <el-input v-model="base.branch_bankname" :disabled="pageStyle=='scan'"></el-input>
+                <el-input v-model="base.branch_bankname" :disabled="pageStyle=='scan'" :placeholder="$t('yanzheng.placeholder.branch_bankname')"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
               <el-form-item :label="$t('merchantlList.bodyBank.bankNameAccount1')" prop="bankuser">
-                <el-input v-model="base.bankuser" :disabled="pageStyle=='scan'"></el-input>
+                <el-input v-model="base.bankuser" :disabled="pageStyle=='scan'" :placeholder="$t('yanzheng.placeholder.bankNameAccount1')"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
               <el-form-item :label="$t('merchantlList.bodyBank.bankCode')" prop="bankaccount">
-                <el-input v-model="base.bankaccount" :disabled="pageStyle=='scan'"></el-input>
+                <el-input v-model="base.bankaccount" :disabled="pageStyle=='scan'" :placeholder="$t('yanzheng.placeholder.bankaccount')"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
@@ -75,7 +75,7 @@
             </el-col>
             <el-col :xs="24" :sm="24" :md="12" :lg="8">
               <el-form-item :label="$t('merchantlList.bodyBank.rules')" prop="clear_rule">
-                <el-input v-model="base.clear_rule" :disabled="pageStyle=='scan'"></el-input>
+                <el-input v-model="base.clear_rule" :disabled="pageStyle=='scan'" :placeholder="$t('yanzheng.placeholder.clear_rule')"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="24" :md="24" :lg="24">
@@ -136,7 +136,8 @@ export default {
         brand_name: "",
         company_name: "",
         slsm_username:"",
-        contact_name: "",
+        // contact_name: "",
+        contact_mobile: "",
         contact_email: "",
         mchnt_mcc: "",
         head_bankname: "",
@@ -152,7 +153,7 @@ export default {
           {
             required: true,
             min: 1,
-            max: 128,
+            max: 100,
             message: this.$t('yanzheng.bandName'),
             trigger: "blur"
           }
@@ -161,7 +162,7 @@ export default {
           {
             required: true,
             min: 1,
-            max: 128,
+            max: 100,
             message: this.$t('yanzheng.companyName'),
             trigger: "blur"
           }
@@ -182,12 +183,20 @@ export default {
             trigger: "blur"
           }
         ],
-        contact_name: [
+        // contact_name: [
+        //   {
+        //     required: false,
+        //     min: 1,
+        //     max: 128,
+        //     message: this.$t('yanzheng.contact'),
+        //     trigger: "blur"
+        //   }
+        // ],
+        contact_mobile: [
           {
             required: false,
-            min: 1,
-            max: 128,
-            message: this.$t('yanzheng.contact'),
+            pattern: /^[0-9+-]{1,15}$/,
+            message: this.$t('yanzheng.contactMobile'),
             trigger: "blur"
           }
         ],
@@ -376,7 +385,8 @@ export default {
         company_name: this.base.company_name,
         slsm_username: this.base.slsm_username
       };
-      searchPost(this.base.contact_name, "contact_name", post_data);
+      // searchPost(this.base.contact_name, "contact_name", post_data);
+      searchPost(this.base.contact_mobile, "contact_mobile", post_data);
       searchPost(this.base.contact_email, "contact_email", post_data);
       searchPost(this.base.mchnt_mcc, "mchnt_mcc", post_data);
       searchPost(this.base.head_bankname, "head_bankname", post_data);
