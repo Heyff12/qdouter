@@ -40,13 +40,13 @@
           </el-col>
           <el-col :xs="24" :sm="24" :md="12" :lg="6">
             <el-form-item :label="$t('generalPro.searchBank.startTime')">
-              <el-date-picker v-model="searchkey.trade_start_time" type="datetime" align="right" :picker-options="pickerOptions_s" format="yyyy-MM-dd HH:mm:ss" @change="start_change" :editable="false" :clearable="false">
+              <el-date-picker v-model="searchkey.trade_start_time" type="datetime" align="right" :picker-options="pickerOptions_s" format="yyyy-MM-dd HH:mm:ss"  popper-class="noAnotherMonth" @change="start_change" :editable="false" :clearable="false">
               </el-date-picker>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="12" :lg="6">
             <el-form-item :label="$t('generalPro.searchBank.endTime')">
-              <el-date-picker v-model="searchkey.trade_end_time" type="datetime" align="right" :picker-options="pickerOptions_e" format="yyyy-MM-dd HH:mm:ss" popper-class="no_now" :editable="false" :clearable="false">
+              <el-date-picker v-model="searchkey.trade_end_time" type="datetime" align="right" :picker-options="pickerOptions_e" format="yyyy-MM-dd HH:mm:ss" popper-class="no_now noAnotherMonth" :editable="false" :clearable="false">
               </el-date-picker>
             </el-form-item>
           </el-col>
