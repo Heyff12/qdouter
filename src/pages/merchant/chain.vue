@@ -68,11 +68,11 @@
                   <p class="title">{{$t('merchantlList.bodyBank.feeD')}}</p>
                   <ul>
                     <template v-if="scope.row.fee_ratios">
-                      <li>{{$t('merchantlList.bodyBank.feeWeixin')}}：<span class="orange">{{middle_fee.wechat_fee | percent_f }}</span></li>
-                      <li>{{$t('merchantlList.bodyBank.feeBao')}}：<span class="orange">{{middle_fee.alipay_fee | percent_f }}</span></li>
-                      <li>{{$t('merchantlList.bodyBank.feeJd')}}：<span class="orange">{{middle_fee.jd_fee | percent_f }}</span></li>
-                      <li>{{$t('merchantlList.bodyBank.feeQQ')}}：<span class="orange">{{middle_fee.qqwallet_fee | percent_f }}</span></li>
-                      <li>{{$t('merchantlList.bodyBank.feeCard')}}：<span class="orange">{{middle_fee.swipecard_fee | percent_f }}</span></li>
+                      <li v-if="middle_fee.wechat_fee">{{$t('merchantlList.bodyBank.feeWeixin')}}：<span class="orange">{{middle_fee.wechat_fee | percent_f }}</span></li>
+                      <li v-if="middle_fee.alipay_fee">{{$t('merchantlList.bodyBank.feeBao')}}：<span class="orange">{{middle_fee.alipay_fee | percent_f }}</span></li>
+                      <li v-if="middle_fee.jd_fee">{{$t('merchantlList.bodyBank.feeJd')}}：<span class="orange">{{middle_fee.jd_fee | percent_f }}</span></li>
+                      <li v-if="middle_fee.qqwallet_fee">{{$t('merchantlList.bodyBank.feeQQ')}}：<span class="orange">{{middle_fee.qqwallet_fee | percent_f }}</span></li>
+                      <li v-if="middle_fee.swipecard_fee">{{$t('merchantlList.bodyBank.feeCard')}}：<span class="orange">{{middle_fee.swipecard_fee | percent_f }}</span></li>
                     </template>
                     <template v-if="scope.row.settle_cycle">
                       <li>{{$t('merchantlList.bodyBank.settleCycle')}}：<span class="orange">{{scope.row.settle_cycle}}</span></li>
