@@ -195,7 +195,7 @@ export default {
         contact_mobile: [
           {
             required: false,
-            pattern: /^[0-9+-]{1,15}$/,
+            pattern: /^[0-9+-\\)\\(]{1,15}$/,
             message: this.$t('yanzheng.contactMobile'),
             trigger: "blur"
           }
