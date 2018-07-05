@@ -57,6 +57,8 @@
         <el-table :data="merchants_now" border stripe style="width: 100%">
           <el-table-column prop="mchnt_uid" :label="$t('merchantlList.searchBank.chanId')" resizable min-width="130px">
           </el-table-column>
+          <el-table-column prop="qd_uid" :label="$t('merchantlList.searchBank.qdId')" resizable min-width="130px">
+          </el-table-column>
           <el-table-column prop="name" :label="$t('merchantlList.bodyBank.brand')" resizable min-width="120px">
           </el-table-column>
           <el-table-column prop="username" :label="$t('generalPro.bodyBank.loginName')" resizable min-width="100px">
