@@ -463,9 +463,9 @@ export default {
       let post_data = {
         fileid: this.addUpData.fileid
       };
-      if (this.addId) {
-        post_data.big_userid=this.addId;
-      }
+      // if (this.addId) {
+      //   post_data.big_userid=this.addId;
+      // }
       this.$ajax_log.ajax_post(this, this.add_url, post_data, data_return => {
         this.addShopModal = false;
         this.get_list();
@@ -483,6 +483,9 @@ export default {
       // console.log(file);
       formdata.append("content", file);
       formdata.append("file_name", file.name);
+      if (this.addId) {
+        formdata.append("big_userid", this.addId);
+      }
       this.$ajax_log.ajax_post(this, this.addUp_url, formdata, data_return => {
         _this.addUpData.fileid = data_return.data.fileid;
         _this.addUpData.total_cnt = data_return.data.total_cnt;
