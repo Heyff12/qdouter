@@ -157,7 +157,7 @@
               <p>{{$t('merchantlList.bodyBank.mendTip4')}}</p>
               <input type="file" name="mend" size="32" 
               accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" 
-              class="file file_style" value="" v-on:change="uploadFile1($event)" />
+              class="file file_style" :value="mendValue" v-on:change="uploadFile1($event)" />
             </div>
           </form>
         </el-form-item>
@@ -311,6 +311,7 @@ export default {
       },
       addTitle: "", //添加店弹框标题
       addValue:"",//添加门店--值，保证上传同样的内容，依然可以执行
+      mendValue:"",//修改门店--值，保证上传同样的内容，依然可以执行
     };
   },
   created: function() {
