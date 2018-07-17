@@ -8,15 +8,17 @@
                 <el-row :gutter="10">
                     <el-col :xs="24" :sm="24" :md="12" :lg="6">
                         <el-form-item label-width="0">
-                            <el-button type="primary" @click="download" :disabled="product.length<=0">{{$t('merchantlList.searchBank.downId')}}</el-button>
+                            <!-- <el-button type="primary" @click="download" :disabled="product.length<=0">{{$t('merchantlList.searchBank.downId')}}</el-button> -->
+                            <el-button type="primary" @click="download">{{$t('merchantlList.searchBank.downId')}}</el-button>
                         </el-form-item>
                     </el-col>
                 </el-row>
             </el-form>
             <template>
-                <el-table :data="listData" border stripe style="width: 100%" @selection-change="handleSelectionChange">
-                    <el-table-column type="selection" width="55">
-                    </el-table-column>
+                <!-- <el-table :data="listData" border stripe style="width: 100%" @selection-change="handleSelectionChange"> -->
+                <el-table :data="listData" border stripe style="width: 100%">
+                    <!-- <el-table-column type="selection" width="55">
+                    </el-table-column> -->
                     <el-table-column prop="mchnt_uid" :label="$t('generalPro.bodyBank.merNumId')" resizable min-width="120px">
                     </el-table-column>
                     <el-table-column prop="shopname" :label="$t('generalPro.bodyBank.shopName')" resizable min-width="120px">
@@ -32,6 +34,10 @@
                     </el-table-column> -->
                 </el-table>
             </template>
+            <div class="block t_r mar_t20">
+              <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="page_now" :page-sizes="[10,20,50,100,200,250]" :page-size="page_per" layout="total, sizes, prev, pager, next" :total="pages_all">
+              </el-pagination>
+            </div>
         </div>
           <div class="m_t_20 t_c">
             <el-col :xs="24" :sm="24" :md="24" :lg="24">
@@ -54,7 +60,10 @@ export default {
       down_url: "/qudao/v1/api/chain/branch/download",
       detail_url: "/qudao/v1/api/chain/branch/detail", //取消
       listData: [], //当前展示信息
-      product: []
+      product: [],
+      pages_all: 0, //总信息数
+      page_per: 10, //每页信息数
+      page_now: 0, //当前页数
     };
   },
   created: function() {
@@ -68,6 +77,18 @@ export default {
     //监听toast内容的值得变化
     onMsgChange(val) {
       this.toastmsg = val; //④外层调用组件方注册变更方法，将组件内的数据变更，同步到组件外的数据状态中
+    },
+    handleSizeChange(val) {
+      //console.log(`每页 ${val} 条`);
+      this.page_per = val;
+      this.page_now = 1;
+      // console.log('换页');
+      this.get_list();
+    },
+    handleCurrentChange(val) {
+      // console.log(`当前页: ${val}`);
+      this.page_now = val;
+      this.get_list();
     },
     download() {
       // console.log(this.product);
@@ -110,7 +131,7 @@ export default {
     goback: function() {
       this.$router.go(-1);
     },
-    //产品选择监听事件
+    //产品选择监听事件--取消
     handleSelectionChange(val) {
       let _this = this;
       let select_val = val;
