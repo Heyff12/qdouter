@@ -275,7 +275,7 @@ export default {
       }, //商户费率-中转参数，scope不能直接识别2级信息scope.row.fee_ratios.wechat_fee
       pages_all: 0, //总信息数
       page_per: 10, //每页信息数
-      page_now: 0, //当前页数
+      page_now: 1, //当前页数
       merchants_now: [], //当前展示信息
       addId: "", //添加分店的类型- 的商户id
       binddata: {

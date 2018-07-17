@@ -63,7 +63,7 @@ export default {
       product: [],
       pages_all: 0, //总信息数
       page_per: 10, //每页信息数
-      page_now: 0, //当前页数
+      page_now: 1, //当前页数
     };
   },
   created: function() {
