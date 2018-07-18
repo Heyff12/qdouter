@@ -345,7 +345,15 @@ export default {
       };
       this.$ajax_log.ajax_get(this, this.product_url+id+'/product_info', post_data, data_return => {
         _this.proList = data_return.data;
-        _this.getproShow(data_return.data);
+        let dataUseful = [];
+        _this.proList.forEach(item=>{
+          if(item.status=='0'){
+            dataUseful.push(item);              
+          }
+        })
+        if(dataUseful.length>0){
+          _this.getproShow(dataUseful);
+        }   
       });
     },
     //产品选择监听事件--取消
