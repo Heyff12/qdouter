@@ -377,6 +377,7 @@ export default {
           message: this.$t('yanzheng.fee'),
           type: "error"
         });
+        return false;
       }
       this.$refs[formName].validate(valid => {
         if (valid) {
