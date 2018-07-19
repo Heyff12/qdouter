@@ -124,6 +124,7 @@ export default {
     loginName: "渠道系统的登录账号以及渠道识别码",
     loginNameString: "仅支持输入字母或者数字，请重新输入!",
     loginNameNum: "请输入不超过15个字符的登录名!",
+    loginNameNumMerchant: "输入不能超过15个字符!",
     chainId:"请输入连锁商户ID，只能包含数字",
     qdId:"请输入连锁商户ID，只能包含数字",
     shopId:"请输入门店ID，多个id用英文逗号分隔",

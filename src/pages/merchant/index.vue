@@ -886,7 +886,7 @@ export default {
         },{
           min: 1,
           max: 15,
-          message: this.$t('yanzheng.loginNameNum'),
+          message: this.$t('yanzheng.loginNameNumMerchant'),
           trigger: 'blur'
         }],
         qd_name: yanzheng.test_qd_name(this.$t('generalPro.bodyBank.qdName'), 1, 30, false, 'blur', this),

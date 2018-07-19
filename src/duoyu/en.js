@@ -124,6 +124,7 @@ export default {
     loginName: "渠道系统的登录账号以及渠道识别码",
     loginNameString: "1-15 digits only, alphabet and/or number. Please try again",
     loginNameNum: "1-15 digits only, alphabet and/or number. Please try again",
+    loginNameNumMerchant: "1-15 digits only, alphabet and/or number. Please try again",
     chainId:"Please enter Group ID, numbers only",
     qdId:"Please enter Agent ID, numbers only",
     shopId:"Please enter the store ID，multiple stores width a comma ',' break to distinguish",
