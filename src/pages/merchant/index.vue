@@ -872,10 +872,21 @@ export default {
           message: this.$t('yanzheng.merName1'),
           trigger: 'blur'
         }],
-        mchnt_mobile: [{
+        // mchnt_mobile: [{
+        //   required: false,
+        //   pattern: /^1[0-9]{10}$/,
+        //   message: this.$t('yanzheng.tel'),
+        //   trigger: 'blur'
+        // }],
+        mchnt_mobile:[{
           required: false,
-          pattern: /^1[0-9]{10}$/,
-          message: this.$t('yanzheng.tel'),
+          pattern: /^[0-9a-zA-Z]+$/,
+          message: this.$t('yanzheng.loginNameString'),
+          trigger: 'blur'
+        },{
+          min: 1,
+          max: 15,
+          message: this.$t('yanzheng.loginNameNum'),
           trigger: 'blur'
         }],
         qd_name: yanzheng.test_qd_name(this.$t('generalPro.bodyBank.qdName'), 1, 30, false, 'blur', this),
