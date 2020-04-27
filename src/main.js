@@ -15,7 +15,7 @@ import '../theme/index.css'; //饿了吗主题样式--自定义样式#ff8100--�
 import ElementUI from 'element-ui' //饿了吗主题插件
 
 //mock数据接口--本地使用---------------------------------------------------------------------------------------------
-// import '../mock/page_app.js'
+import '../mock/page_app.js'
 
 //测试前端报错监控---------------------------------------------------------------------------------------------
 //import './monitor'
@@ -31,7 +31,7 @@ import messages from './duoyu/' //多语言文字
 Vue.use(VueI18n);
 //增加cookie的语言设置
 import cookie from './method/cookie' //cookie设置方法
-//设置当前语言默认值--localStorage 
+//设置当前语言默认值--localStorage
 //初始语言根据浏览器语言获取，(根据全局变量 language，取消该变量)语言版本从localStorage.lang获取；
 //货币符号从返回的信息获取并做了store全局变量--跟当前语言没有关系
 //语言包的js的名字应该与浏览器语言的 language 一致
