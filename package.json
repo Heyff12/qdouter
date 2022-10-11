@@ -29,7 +29,7 @@
     "css-loader": "^0.25.0",
     "del": "^2.2.2",
     "echarts": "^3.4.0",
-    "element-theme": "^0.7.1",
+    "element-theme": "^2.0.1",
     "element-theme-default": "^1.1.5",
     "element-ui": "^1.1.5",
     "eventsource-polyfill": "^0.9.6",
